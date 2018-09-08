@@ -13,6 +13,12 @@
 /obj/item/weapon/card/id/bearcat
 	access = list(access_bearcat)
 
+/obj/item/weapon/card/id/bearcat/engineer
+	access = list(access_bearcat)
+
+/obj/item/weapon/card/id/bearcat/doctor
+	access = list(access_bearcat)
+
 /obj/item/weapon/card/id/bearcat_captain
 	access = list(access_bearcat, access_bearcat_captain)
 

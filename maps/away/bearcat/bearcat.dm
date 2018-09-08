@@ -11,6 +11,8 @@
 	map = "Bearcat Wreck"
 	crew_jobs = list(
 		/datum/job/submap/bearcat_captain,
+		/datum/job/submap/bearcat_engineer,
+		/datum/job/submap/bearcat_doctor,
 		/datum/job/submap/bearcat_crewman
 	)
 
@@ -77,14 +79,29 @@
 	environ = 0
 	locked = 0
 	coverlocked = 0
+	req_access = list(access_bearcat)
+
+/obj/machinery/alarm/derelict
+	locked = 0
+	req_access = list(access_bearcat)
+
+/obj/machinery/door/firedoor/derelict
+	req_one_access = list(access_bearcat, access_bearcat_captain)
 
 /obj/machinery/door/airlock/autoname/command
 	door_color = COLOR_COMMAND_BLUE
-	req_access = list(access_heads)
+	req_access = list(access_bearcat_captain)
 
 /obj/machinery/door/airlock/autoname/engineering
 	door_color = COLOR_AMBER
-	req_access = list(access_engine)
+	req_access = list(access_bearcat)
+
+/obj/item/device/radio/headset/bearcat
+	name = "radio headset"
+	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
+	icon_state = "headset"
+	item_state = "headset"
+	frequency = 1443
 
 /turf/simulated/floor/usedup
 	initial_gas = list("carbon_dioxide" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
@@ -135,3 +152,32 @@
 			qdel(eyegore)
 	var/obj/item/weapon/cell/super/C = new()
 	H.put_in_any_hand_if_possible(C)
+
+/obj/machinery/computer/shuttle_control/explore/bearcat_utilitypod
+	name = "utility pod control console"
+	shuttle_tag = "Utility Pod"
+
+/datum/shuttle/autodock/overmap/bearcat_utilitypod
+	name = "Utility Pod"
+	warmup_time = 5
+	move_time = 60
+	shuttle_area = /area/ship/scrap/shuttle/utilitypod
+	dock_target ="bearcat_shuttle"
+	current_location = "nav_hangar_bearcat"
+	landmark_transition = "nav_transit_bearcat_utilitypod"
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_bearcat"
+	logging_access = access_bearcat
+	skill_needed = SKILL_NONE
+
+/obj/effect/shuttle_landmark/derelict/bearcat_utilitypod
+	name = "Utility Pod Hangar"
+	landmark_tag = "nav_hangar_bearcat"
+	base_area = /area/quartermaster/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/derelict/transit/bearcat_utilitypod
+	name = "In transit"
+	landmark_tag = "nav_transit_bearcat_utilitypod"

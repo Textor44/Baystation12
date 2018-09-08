@@ -165,3 +165,9 @@
   name = "Cargo Lift"
   icon_state = "shuttle3"
   base_turf = /turf/simulated/open
+
+/area/ship/scrap/shuttle/utilitypod
+	name = "Utility Pod"
+	icon_state = "shuttlered"
+	requires_power = 1
+	dynamic_lighting = 1
