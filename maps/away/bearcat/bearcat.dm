@@ -74,9 +74,9 @@
 
 /obj/machinery/power/apc/derelict
 	cell_type = /obj/item/weapon/cell/crap/empty
-	lighting = 1
-	equipment = 1
-	environ = 1
+	lighting = 2
+	equipment = 2
+	environ = 2
 	locked = 0
 	coverlocked = 0
 	req_access = list(access_bearcat)
