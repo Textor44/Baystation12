@@ -20,9 +20,9 @@
 	name = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 60
-	default_delay = 3 MINUTES
+	default_delay = 30 SECONDS
 	speed_mod = 0.1 MINUTE
-	burn_delay = 10 SECONDS
+	burn_delay = 5 SECONDS
 
 /obj/effect/overmap/ship/bearcat/New()
 	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
@@ -38,7 +38,7 @@
 	description = "A wrecked light freighter."
 	suffixes = list("bearcat/bearcat-1.dmm", "bearcat/bearcat-2.dmm")
 	cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/lift)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/lift, /datum/shuttle/autodock/overmap/bearcat_utilitypod)
 
 /datum/shuttle/autodock/ferry/lift
 	name = "Cargo Lift"
@@ -74,9 +74,9 @@
 
 /obj/machinery/power/apc/derelict
 	cell_type = /obj/item/weapon/cell/crap/empty
-	lighting = 0
-	equipment = 0
-	environ = 0
+	lighting = 1
+	equipment = 1
+	environ = 1
 	locked = 0
 	coverlocked = 0
 	req_access = list(access_bearcat)
@@ -84,6 +84,11 @@
 /obj/machinery/alarm/derelict
 	locked = 0
 	req_access = list(access_bearcat)
+
+/obj/machinery/alarm/derelict/New()
+	var/area/A = get_area(src)
+	tag = A.name
+	..()
 
 /obj/machinery/door/firedoor/derelict
 	req_one_access = list(access_bearcat, access_bearcat_captain)
