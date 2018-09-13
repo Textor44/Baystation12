@@ -181,6 +181,8 @@
 					if(internal)
 						lift.doors += newdoor
 						newdoor.lift = cfloor
+						newdoor.dir = udir
+						newdoor.dir = udir
 					else
 						cfloor.doors += newdoor
 						newdoor.floor = cfloor

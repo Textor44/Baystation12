@@ -86,7 +86,3 @@
 	access = list(access_valiant, access_valiant_command, access_valiant_engineering, access_valiant_science, access_valiant_medical, access_valiant_security)
 	icon_state = "gold"
 	item_state = "gold_id"
-
-/obj/machinery/door/airlock/autoname/valiant
-	req_one_access = null
-	req_access = list(access_valiant)

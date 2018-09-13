@@ -19,6 +19,7 @@
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/valiant/valiant.dm"
 
 	#define using_map_DATUM /datum/map/away_sites_testing
 
