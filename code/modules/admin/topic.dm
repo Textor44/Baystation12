@@ -1508,9 +1508,10 @@
 		return
 
 	else if(href_list["FaxReply"])
-		var/mob/sender = locate(href_list["FaxReply"])
-		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["originfax"])
-		var/replyorigin = href_list["replyorigin"]
+		var/list/adminfax = list(href_list["FaxReply"])
+		var/mob/sender = adminfax["sender"]
+		var/obj/machinery/photocopier/faxmachine/fax = adminfax["origin"]
+		var/replyorigin = adminfax["destination"]
 
 
 		var/obj/item/weapon/paper/admin/P = new /obj/item/weapon/paper/admin( null ) //hopefully the null loc won't cause trouble for us

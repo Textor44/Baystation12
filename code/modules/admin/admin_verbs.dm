@@ -318,7 +318,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/aooc,
 	/datum/admins/proc/sendFax,
 	/datum/admins/proc/paralyze_mob,
-	/datum/admins/proc/view_persistent_data
+	/datum/admins/proc/view_persistent_data,
+	/datum/admins/proc/admin_fax
 )
 
 var/list/admin_verbs_mentor = list(
