@@ -10,7 +10,7 @@
 	item_state = "silver_id"
 	job_access_type = /datum/job/hop
 	extra_details = list("goldstripe")
-	color = "#ccecff"
+	color = "#ccecff"	
 
 /obj/item/weapon/card/id/torch/gold
 	desc = "A golden identification card belonging to the Commanding Officer."
@@ -36,10 +36,12 @@
 /obj/item/weapon/card/id/torch/silver/medical
 	job_access_type = /datum/job/cmo
 	detail_color = COLOR_PALE_BLUE_GRAY
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/torch/crew/medical
 	job_access_type = /datum/job/doctor
 	detail_color = COLOR_PALE_BLUE_GRAY
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/torch/crew/medical/senior
 	job_access_type = /datum/job/senior_doctor
@@ -47,6 +49,7 @@
 /obj/item/weapon/card/id/torch/contractor/medical
 	job_access_type = /datum/job/doctor_contractor
 	detail_color = COLOR_PALE_BLUE_GRAY
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/torch/contractor/chemist
 	job_access_type = /datum/job/chemist
@@ -55,18 +58,21 @@
 /obj/item/weapon/card/id/torch/contractor/biomech
 	job_access_type = /datum/job/biomech
 	detail_color = COLOR_PALE_BLUE_GRAY
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/torch/contractor/medical/counselor
 	job_access_type = /datum/job/psychiatrist
-
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/torch/silver/security
 	job_access_type = /datum/job/hos
 	detail_color = "#e00000"
+	override_category = OVERRIDE_SECURITY
 
 /obj/item/weapon/card/id/torch/crew/security
 	job_access_type = /datum/job/officer
 	detail_color = "#e00000"
+	override_category = OVERRIDE_SECURITY
 
 /obj/item/weapon/card/id/torch/crew/security/brigofficer
 	job_access_type = /datum/job/warden
@@ -79,10 +85,12 @@
 /obj/item/weapon/card/id/torch/silver/engineering
 	job_access_type = /datum/job/chief_engineer
 	detail_color = COLOR_SUN
+	override_category = OVERRIDE_ENGINEERING
 
 /obj/item/weapon/card/id/torch/crew/engineering
 	job_access_type = /datum/job/engineer
 	detail_color = COLOR_SUN
+	override_category = OVERRIDE_ENGINEERING
 
 /obj/item/weapon/card/id/torch/crew/engineering/senior
 	job_access_type = /datum/job/senior_engineer
@@ -91,6 +99,7 @@
 /obj/item/weapon/card/id/torch/contractor/engineering
 	job_access_type = /datum/job/engineer_contractor
 	detail_color = COLOR_SUN
+	override_category = OVERRIDE_ENGINEERING
 
 /obj/item/weapon/card/id/torch/contractor/engineering/roboticist
 	job_access_type = /datum/job/roboticist

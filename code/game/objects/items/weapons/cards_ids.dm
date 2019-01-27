@@ -162,6 +162,7 @@ var/const/NO_EMAG_ACT = -50
 
 	var/detail_color
 	var/extra_details
+	var/override_category = OVERRIDE_GENERAL //allows all ID cards to be used in the event of an evac event with override set.
 
 /obj/item/weapon/card/id/Initialize()
 	.=..()
@@ -394,6 +395,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card issued to medical staff."
 	job_access_type = /datum/job/doctor
 	detail_color = COLOR_PALE_BLUE_GRAY
+	override_category = OVERRIDE_MEDICAL
 
 /obj/item/weapon/card/id/medical/chemist
 	job_access_type = /datum/job/chemist
@@ -419,6 +421,7 @@ var/const/NO_EMAG_ACT = -50
 	job_access_type = /datum/job/officer
 	color = COLOR_OFF_WHITE
 	detail_color = COLOR_MAROON
+	override_category = OVERRIDE_SECURITY
 
 /obj/item/weapon/card/id/security/warden
 	job_access_type = /datum/job/warden
@@ -437,6 +440,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card issued to engineering staff."
 	job_access_type = /datum/job/engineer
 	detail_color = COLOR_SUN
+	override_category = OVERRIDE_ENGINEERING
 
 /obj/item/weapon/card/id/engineering/head
 	name = "identification card"

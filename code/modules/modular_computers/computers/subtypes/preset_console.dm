@@ -77,6 +77,7 @@
 	hard_drive.store_file(new/datum/computer_file/program/records())
 	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
 	hard_drive.store_file(new/datum/computer_file/program/docking())
+	hard_drive.store_file(new/datum/computer_file/program/access_override)
 
 // Security
 /obj/item/modular_computer/console/preset/security/install_default_hardware()
@@ -102,6 +103,7 @@
 	hard_drive.store_file(new/datum/computer_file/program/supply())
 	hard_drive.store_file(new/datum/computer_file/program/records())
 	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
+	hard_drive.store_file(new/datum/computer_file/program/access_override)
 
 // Offices
 /obj/item/modular_computer/console/preset/civilian/professional/install_default_hardware()

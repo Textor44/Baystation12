@@ -441,6 +441,10 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/bumpopen(mob/living/simple_animal/user as mob)
 	..(user)
 
+/obj/machinery/door/airlock/proc/get_override_category()
+	var/area/A = get_area(loc)
+	return A.override_category
+
 /obj/machinery/door/airlock/proc/isElectrified()
 	if(src.electrified_until != 0)
 		return 1
@@ -1020,6 +1024,16 @@ About the new airlock wires panel:
 	// Brace is considered installed on the airlock, so interacting with it is protected from electrification.
 	if(brace && (istype(C.GetIdCard(), /obj/item/weapon/card/id/) || istype(C, /obj/item/weapon/crowbar/brace_jack)))
 		return brace.attackby(C, user)
+
+	if(!brace && (istype(C.GetIdCard(), /obj/item/weapon/card/id)))
+		var/obj/item/weapon/card/id/ID = C
+		var/area/A = get_area(loc)
+		if(GLOB.access_overrides.can_override(src, ID))			
+			GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_ACCESS, ID.override_category, A.name, src)
+			open()
+		else
+			GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_ATTEMPT, ID.override_category, A.name, src)
+			do_animate(AIRLOCK_DENY)
 
 	if(!brace && istype(C, /obj/item/weapon/airlock_brace))
 		var/obj/item/weapon/airlock_brace/A = C

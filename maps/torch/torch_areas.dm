@@ -15,6 +15,50 @@
 		/area/shuttle/specops/centcom,
 	)
 
+//Generic Areas for override categories. Should not be used in mapping.
+/area
+	var/override_category = OVERRIDE_NONE //defaults all areas to not being overriden by the control console.
+
+/area/hallway
+	override_category = OVERRIDE_GENERAL
+
+/area/maintenance
+	override_category = OVERRIDE_GENERAL
+
+/area/maintenance/substation
+	override_category = OVERRIDE_ENGINEERING
+
+/area/ai_monitored
+	name = "AI Monitored Area"
+	override_category = OVERRIDE_COMMAND
+
+/area/turret_protected
+	override_category = OVERRIDE_COMMAND	
+
+/area/commnad
+	override_category = OVERRIDE_COMMAND
+
+/area/crew_quarters
+	override_category = OVERRIDE_GENERAL
+
+/area/engineering
+	override_category = OVERRIDE_ENGINEERING
+
+/area/medical
+	override_category = OVERRIDE_MEDICAL
+
+/area/security
+	override_category = OVERRIDE_SECURITY
+
+/area/prison
+	override_category = OVERRIDE_SECURITY
+
+/area/vacant
+	override_category = OVERRIDE_GENERAL
+
+/area/vacant/prototype
+	override_category = OVERRIDE_ENGINEERING
+
 //Fifth Deck (Z-0)
 /area/hallway/primary/fifthdeck/fore
 	name = "\improper Fifth Deck Fore Hallway"
@@ -194,7 +238,7 @@
 /area/maintenance/bluespace
 	name = "Bluespace Drive"
 	icon_state = "engineering"
-
+	override_category = OVERRIDE_ENGINEERING
 
 //First Deck (Z-4)
 /area/maintenance/firstdeck
@@ -347,6 +391,7 @@
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	override_category = OVERRIDE_SUPPLY
 
 /area/exploration_shuttle/cockpit
 	name = "\improper Charon - Cockpit"
@@ -370,6 +415,7 @@
 	requires_power = 1
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	override_category = OVERRIDE_COMMAND
 
 /area/aquila/cockpit
 	name = "\improper SEV Aquila - Cockpit"
@@ -398,7 +444,7 @@
 	requires_power = 1
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
+	override_category = OVERRIDE_SUPPLY
 
 //Petrov
 
@@ -407,6 +453,7 @@
 	requires_power = 1
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	override_category = OVERRIDE_RESEARCH
 
 /area/shuttle/petrov/cell1
 	name = "\improper NSV Petrov - Isolation Cell 1"
@@ -477,6 +524,7 @@
 	requires_power = 0
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	override_category = OVERRIDE_GENERAL
 
 /area/turbolift/start
 	name = "\improper Turbolift Start"
@@ -510,11 +558,13 @@
 	name = "\improper Cargo Lift"
 	icon_state = "shuttle3"
 	base_turf = /turf/simulated/open
+	override_category = OVERRIDE_SUPPLY
 
 /area/turbolift/robotics_lift
-  name = "\improper Robotics Lift"
-  icon_state = "shuttle3"
-  base_turf = /turf/simulated/open
+	name = "\improper Robotics Lift"
+	icon_state = "shuttle3"
+	base_turf = /turf/simulated/open
+	override_category = OVERRIDE_ENGINEERING
 
 // Ninja areas
 /area/ninja_dojo
@@ -632,11 +682,13 @@
 	name = "\improper Pathfinder's Office"
 	icon_state = "head_quarters"
 	sound_env = MEDIUM_SOFTFLOOR
+	override_category = OVERRIDE_RESEARCH
 
 /area/command/pilot
 	name = "\improper Pilot's Lounge"
 	icon_state = "head_quarters"
 	sound_env = MEDIUM_SOFTFLOOR
+	override_category = OVERRIDE_RESEARCH
 
 /area/command/armoury
 	name = "\improper Emergency Armory"
@@ -766,30 +818,36 @@
 /area/storage/auxillary/port
 	name = "Port Auxillary Storage"
 	icon_state = "auxstorage"
+	override_category = OVERRIDE_SUPPLY
 
 /area/storage/auxillary/starboard
 	name = "Starboard Auxillary Storage"
 	icon_state = "auxstorage"
+	override_category = OVERRIDE_SUPPLY
 
 /area/storage/cargo
 	name = "Cargo Storage"
 	icon_state = "quartstorage"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_SUPPLY
 
 /area/storage/expedition
 	name = "Expedition Storage"
 	icon_state = "storage"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_RESEARCH
 
 /area/storage/medical
 	name = "Medical Storage"
 	icon_state = "medbay4"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_MEDICAL
 
 /area/storage/research
 	name = "Research Storage"
 	icon_state = "toxstorage"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_RESEARCH
 
 // Supply
 
@@ -859,6 +917,7 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
+	override_category = OVERRIDE_SERVICE
 
 /area/crew_quarters/cryolocker
 	name = "\improper Cryogenic Storage Wardrobe"
@@ -883,14 +942,17 @@
 /area/crew_quarters/galley
 	name = "\improper Galley"
 	icon_state = "kitchen"
+	override_category = OVERRIDE_SERVICE
 
 /area/crew_quarters/galleybackroom
 	name = "\improper Galley Cold Storage"
 	icon_state = "kitchen"
+	override_category = OVERRIDE_SERVICE
 
 /area/crew_quarters/commissary
 	name = "\improper Commissary"
 	icon_state = "crew_quarters"
+	override_category = OVERRIDE_SUPPLY
 
 /area/crew_quarters/lounge
 	name = "\improper Lounge"
@@ -1022,6 +1084,7 @@
 	name = "\improper Crematorium"
 	icon_state = "chapel"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_MEDICAL
 
 // Shield Rooms
 /area/shield
@@ -1058,22 +1121,27 @@
 	name = "\improper Teleporter"
 	icon_state = "teleporter"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_COMMAND
 
 /area/maintenance/auxsolarbridge
 	name = "Solar Maintenance - Bridge"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_ENGINEERING
 
 /area/solar/bridge
 	name = "\improper Bridge Solar Array"
 	icon_state = "panelsS"
+	override_category = OVERRIDE_ENGINEERING
 
 /area/aux_eva
 	name = "\improper Command EVA Storage"
 	icon_state = "eva"
+	override_category = OVERRIDE_COMMAND
 
 /area/thruster
 	icon_state = "thruster"
+	override_category = OVERRIDE_ENGINEERING
 
 /area/thruster/d1port
 	name = "\improper First Deck Port Nacelle"
@@ -1100,7 +1168,8 @@
 /area/bridge
 	name = "\improper Bridge"
 	icon_state = "bridge"
-
+	override_category = OVERRIDE_COMMAND
+	
 /area/bridge/meeting_room
 	name = "\improper Heads of Staff Meeting Room"
 	icon_state = "bridge"
@@ -1154,11 +1223,13 @@
 	name = "Solar Maintenance - Port"
 	icon_state = "SolarcontrolP"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_ENGINEERING
 
 /area/maintenance/auxsolarstarboard
 	name = "Solar Maintenance - Starboard"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
+	override_category = OVERRIDE_ENGINEERING
 
 /area/solar
 	area_flags = AREA_FLAG_EXTERNAL
@@ -1166,6 +1237,7 @@
 	always_unpowered = 1
 	has_gravity = FALSE
 	base_turf = /turf/space
+	override_category = OVERRIDE_ENGINEERING
 
 /area/solar/auxstarboard
 	name = "\improper Fore Starboard Solar Array"
@@ -1367,6 +1439,9 @@
 	icon_state = "autopsy"
 
 // Research
+/area/assembly
+	override_category = OVERRIDE_ENGINEERING
+
 /area/assembly/chargebay
 	name = "\improper Mech Bay"
 	icon_state = "mechbay"
@@ -1380,6 +1455,9 @@
 
 /area/assembly/robotics/surgery
 	name = "\improper Robotics Operating Theatre"
+
+/area/rnd
+	override_category = OVERRIDE_RESEARCH
 
 /area/rnd/misc_lab
 	name = "\improper Miscellaneous Research"
@@ -1475,6 +1553,7 @@
 /area/janitor
 	name = "\improper Custodial Closet"
 	icon_state = "janitor"
+	override_category = OVERRIDE_SERVICE
 
 /area/janitor/aux
 	name = "\improper Aux Custodial Closet"
@@ -1482,6 +1561,7 @@
 // Tcomm
 /area/tcommsat/
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
+	override_category = OVERRIDE_ENGINEERING
 
 /area/tcommsat/chamber
 	name = "\improper Telecoms Central Compartment"
@@ -1492,9 +1572,6 @@
 	icon_state = "tcomsatcomp"
 
 // AI
-
-/area/ai_monitored
-	name = "AI Monitored Area"
 
 /area/ai_monitored/storage/eva
 	name = "\improper EVA Storage"
@@ -1522,6 +1599,8 @@
 	sound_env = SMALL_ENCLOSED
 
 // Chapel
+/area/chapel
+	override_category = OVERRIDE_GENERAL
 
 /area/chapel/main
 	name = "\improper Chapel"
