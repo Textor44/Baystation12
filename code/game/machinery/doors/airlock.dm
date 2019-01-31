@@ -1028,8 +1028,9 @@ About the new airlock wires panel:
 	if(!brace && (istype(C.GetIdCard(), /obj/item/weapon/card/id)))
 		var/obj/item/weapon/card/id/ID = C
 		var/area/A = get_area(loc)
-		if(GLOB.access_overrides.can_override(src, ID))			
+		if(GLOB.access_overrides.can_override(src, ID))
 			GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_ACCESS, ID.override_category, A.name, src)
+			unlock()
 			open()
 		else
 			GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_ATTEMPT, ID.override_category, A.name, src)

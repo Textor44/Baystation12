@@ -4,91 +4,91 @@
 			<tr><th>Command Department</th><th>Engineering Department</th><th>Medical Department</th></tr>
 			<tr>
 				{{if data.command_e == 1}}
-					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 2, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Command', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 2 , 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Command' , 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
-				<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 3, 'o_dept' : 1}, 'disabled')}}</td>
+				<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Engineering', 'o_dept' : 1}, 'disabled')}}</td>
 				{{if data.medical_e == 1}}
-					<td class = 'link'>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 4, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Medical', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td class = 'link'>{{:helper.link('Authorize Engineering', null, {'grant_access' : 4, 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Medical', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
 			</tr>
 			<tr>
 				{{if data.command_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 2, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Command', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 2, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Command', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.engineering_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 3, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Engineering', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 3, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Engineering', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
-				<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 4, 'o_dept' : 2}, 'disabled')}}</td>
+				<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Medical', 'o_dept' : 2}, 'disabled')}}</td>
 			</tr>
 			<tr>
 				{{if data.command_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 2, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 'Command', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Security', null, {'revoke_access' : 2, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Command', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.engineering_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 1, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 'Engineering', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 1, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Engineering', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.medical_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 4, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 'Medical', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 4, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Medical', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
 			</tr>
 			<tr><th>Research Department</th><th>Security Department</th><th>Service Department</th></tr>
 			<tr>
 				{{if data.research_e == 1}}
-					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 5, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Research', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 5, 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Research', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.security_e == 1}}
-					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 6, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Security', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 6, 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Security', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.service_e == 1}}
-					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 7, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Service', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 7, 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Service', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
 			</tr>
 			<tr>
 				{{if data.research_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 5, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Research', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 5, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Research', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.security_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 6, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Security', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 6, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Security', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
 				{{if data.service_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 7, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Service', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 7, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Service', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
 			</tr>
 			<tr>
 				{{if data.research_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 1, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 'Research', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 1, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Research', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
-				<td>{{:helper.link('Authorize Security', null, {'grant_access' : 5, 'o_dept' : 4}, 'disabled')}}</td>
+				<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Research', 'o_dept' : 4}, 'disabled')}}</td>
 				{{if data.service_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 1, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 1, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
 					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 1, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
@@ -96,41 +96,41 @@
 			<tr><th>Supply Department</th><th>Other Functions</th></tr>
 			<tr>
 				{{if data.supply_e == 1}}
-					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 8, 'o_dept' : 1}, data.auth_engineering ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Engineering', null, {'revoke_access' : 'Supply', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 8, 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Engineering', null, {'grant_access' : 'Supply', 'o_dept' : 1}, data.auth_engineering ? null : 'disabled')}}</td>
 				{{/if}}
-				<td>{{:helper.link('Revoke All Authorizations', null, {'revoke' : 1}, data.auth_revoke ? 'redButton' : 'disabled')}}</td>
+				<td>{{:helper.link('Revoke All', null, {'revoke' : 1}, data.auth_revoke ? null : 'disabled')}}</td>
 			</tr>
 			<tr>
 				{{if data.supply_m == 1}}
-					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 8, 'o_dept' : 2}, data.auth_medical ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Medical', null, {'revoke_access' : 'Supply', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 8, 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Medical', null, {'grant_access' : 'Supply', 'o_dept' : 2}, data.auth_medical ? null : 'disabled')}}</td>
 				{{/if}}
 				<td>{{:helper.link('Access Override Logs', null, {'change_screen' : 2}, data.auth_logs ? null : 'disabled')}}</td>
 			</tr>
 			<tr>
 				{{if data.supply_s == 1}}
-					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 1, 'o_dept' : 4}, data.auth_security ? 'redButton' : 'disabled')}}</td>
+					<td>{{:helper.link('Revoke Security', null, {'revoke_access' : 'Supply', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{else}}
-					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 1, 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
+					<td>{{:helper.link('Authorize Security', null, {'grant_access' : 'Supply', 'o_dept' : 4}, data.auth_security ? null : 'disabled')}}</td>
 				{{/if}}
-				<td>{{:helper.link('Evacuation Override', null, {'evac' : 1}, data.evacuation ? 'redButton' : 'disabled')}}</td>
+				<td>{{:helper.link('Evacuation Override', null, {'evac' : 1}, data.evacuation ? null : 'disabled')}}</td>
 			</tr>
 		</table>
 	</div>
 {{else data.state == 2}}
 	<div class='item'>
 		<table>
-			<tr><th>Time</th><th>Request</th><th>Name</th></tr>
+			<tr class = 'candystripe'><th>Time</th><th>Name</th><th>Request</th></tr>
 			{{for data.logs}}
 				{{if value.denied}}
-					<tr class = 'brute'>
+					<tr class = 'candystripeR'>
 				{{else}}
-					<tr class = 'toxin'>
+					<tr class = 'candystripeG'>
 				{{/if}}
-				<td>{{:value.time}}</td><td>{{:value.request}}</td><td>{{:value.name}}</td></tr>
+				<td>{{:value.time}}</td><td>{{:value.name}}</td><td>{{:value.request}}</td></tr>
 			{{empty}}
 				<tr><td colspan = '3'>There are no logs available.</td></tr>
 			{{/for}}			

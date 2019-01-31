@@ -1,9 +1,11 @@
 #define STATE_MAIN 1
 #define STATE_LOG 2
 #define STATE_EMAG 3
+#define STATE_NOACCESS 4
+#define STATE_ERROR 5
 
 /datum/access_overrides
-	var/list/override_list[8]
+	var/list/override_list = list()
 	var/list/override_logs = list()
 
 /datum/access_overrides/New()
@@ -18,21 +20,21 @@
 	. = ..()
 
 /datum/access_overrides/proc/override_active(var/department, var/department_permission)
-	return (override_list[department] & department_permission)
+	return ((override_list[department] & department_permission) == department_permission)
 
 /datum/access_overrides/proc/set_override(var/department, var/department_permission)
 	if(department_permission == OVERRIDE_GENERAL)//evac override granted
 		for(var/override in override_list)
 			override = OVERRIDE_GRANTED_ENGINEERING | OVERRIDE_GRANTED_MEDICAL | OVERRIDE_GRANTED_SECURITY | OVERRIDE_GRANTED_ALL
 	else		
-		override_list[department] = override_list[department] | department_permission
+		override_list[department] |= department_permission		
 
 /datum/access_overrides/proc/revoke_access(var/department, /var/department_permission)
 	if(department_permission == OVERRIDE_GRANTED_NONE)//Revoke All command has been issued.
 		for(var/override in override_list)
 			override = OVERRIDE_GRANTED_NONE
 	else
-		override_list[department] &= ~department_permission
+		override_list[department] &= department_permission
 
 /datum/access_overrides/proc/can_override(var/obj/machinery/door/airlock/door, var/obj/item/weapon/card/id/ID)
 	
@@ -65,27 +67,6 @@
 	else
 		return FALSE
 
-/datum/access_overrides/proc/override_department_name(var/override)
-	switch(override)
-		if(OVERRIDE_NONE)
-			return "No Deparment"
-		if(OVERRIDE_GENERAL)
-			return "All Departments"
-		if(OVERRIDE_COMMAND)
-			return "Command"
-		if(OVERRIDE_ENGINEERING)
-			return "Engineering"
-		if(OVERRIDE_MEDICAL)
-			return "Medical"
-		if(OVERRIDE_RESEARCH)
-			return "Research"
-		if(OVERRIDE_SECURITY)
-			return "Security"
-		if(OVERRIDE_SERVICE)
-			return "Service"
-		if(OVERRIDE_SUPPLY)
-			return "Supply"
-
 /datum/access_overrides/proc/override_grant_name(var/override)
 	switch(override)
 		if(OVERRIDE_GRANTED_NONE)
@@ -100,31 +81,37 @@
 			return "All Personnel"
 
 /datum/access_overrides/proc/generate_log(var/mob/living/carbon/human/user, var/log_type, var/department, var/location, var/obj/machinery/door/airlock/door = null)
-	var/datum/access_override_log/log = new()
+	log_and_message_admins("Location = [location]")
+	var/datum/list/log = new()
 
-	log.name = user.get_id_name()
-	log.time = stationtime2text()
+	var/dept = override_grant_name(department)
 
-	if(log_type == OVERRIDE_LOG_REVOKE)
-		log.denied = TRUE
-		log.request = "Revoked [department] override access to [location]."
+	if(log_type == OVERRIDE_LOG_REVOKE)		
+		log += list("name" = user.get_id_name())
+		log += list("time" = stationtime2text())
+		log += list("denied" = TRUE)
+		log += list("request" = "Revoked [dept] override access to [location] areas.")
 
-	if(log_type == OVERRIDE_LOG_GRANT)
-		log.denied = FALSE			
-		log.request = "Granted [department] override access to [location]."
+	if(log_type == OVERRIDE_LOG_GRANT)		
+		log += list("name" = user.get_id_name())
+		log += list("time" = stationtime2text())
+		log += list("denied" = FALSE)
+		log += list("request" = "Granted [dept] override access to [location] areas.")
 
 	if(log_type == OVERRIDE_LOG_ACCESS)
-		if(location)
-			log.denied = FALSE
-			log.request = "[department] Override: airlock [door.name] in [location]"
+		log += list("name" = user.get_id_name())
+		log += list("time" = stationtime2text())
+		log += list("denied" = FALSE)
+		log += list("request" = "Performed a [dept] override of airlock [door.name] in [location].")
 
 	if(log_type == OVERRIDE_LOG_ATTEMPT)
-		if(location)
-			log.denied = TRUE
-			log.request = "[department] Override Attempt: airlock [door.name] in [location]"
+		log += list("name" = user.get_id_name())
+		log += list("time" = stationtime2text())
+		log += list("denied" = TRUE)
+		log += list("request" = "Attempted a [dept] override of airlock [door.name] in [location].")
 
-	if(log.request)
-		override_logs += log
+	if(log)
+		override_logs += list(log)
 
 /datum/access_override_log
 	var/denied
@@ -190,56 +177,61 @@ GLOBAL_DATUM(access_overrides, /datum/access_overrides)
 	. = ..()	
 
 /datum/nano_module/program/access_override/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
-	determine_authorization(user)
+	data = host.initial_data()
+	if(GLOB.access_overrides)
+		determine_authorization(user)
 
-	data["state"] = current_status
+		data["state"] = current_status
 
-	data["command_e"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_ENGINEERING)
-	data["command_m"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_MEDICAL)
-	data["command_s"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_SECURITY)
+		data["command_e"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_ENGINEERING)
+		data["command_m"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_MEDICAL)
+		data["command_s"] = GLOB.access_overrides.override_active(OVERRIDE_COMMAND, OVERRIDE_GRANTED_SECURITY)
 
-	data["engineering_m"] = GLOB.access_overrides.override_active(OVERRIDE_ENGINEERING, OVERRIDE_GRANTED_MEDICAL)
-	data["engineering_s"] = GLOB.access_overrides.override_active(OVERRIDE_ENGINEERING, OVERRIDE_GRANTED_SECURITY)
+		data["engineering_m"] = GLOB.access_overrides.override_active(OVERRIDE_ENGINEERING, OVERRIDE_GRANTED_MEDICAL)
+		data["engineering_s"] = GLOB.access_overrides.override_active(OVERRIDE_ENGINEERING, OVERRIDE_GRANTED_SECURITY)
 	
-	data["medical_e"] = GLOB.access_overrides.override_active(OVERRIDE_MEDICAL, OVERRIDE_GRANTED_ENGINEERING)
-	data["medical_s"] = GLOB.access_overrides.override_active(OVERRIDE_MEDICAL, OVERRIDE_GRANTED_ENGINEERING)
+		data["medical_e"] = GLOB.access_overrides.override_active(OVERRIDE_MEDICAL, OVERRIDE_GRANTED_ENGINEERING)
+		data["medical_s"] = GLOB.access_overrides.override_active(OVERRIDE_MEDICAL, OVERRIDE_GRANTED_SECURITY)
 	
-	data["research_e"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_ENGINEERING)
-	data["research_m"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_ENGINEERING)
-	data["research_s"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_ENGINEERING)
+		data["research_e"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_ENGINEERING)
+		data["research_m"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_MEDICAL)
+		data["research_s"] = GLOB.access_overrides.override_active(OVERRIDE_RESEARCH, OVERRIDE_GRANTED_SECURITY)
 	
-	data["security_e"] = GLOB.access_overrides.override_active(OVERRIDE_SECURITY, OVERRIDE_GRANTED_ENGINEERING)
-	data["security_m"] = GLOB.access_overrides.override_active(OVERRIDE_SECURITY, OVERRIDE_GRANTED_MEDICAL)
+		data["security_e"] = GLOB.access_overrides.override_active(OVERRIDE_SECURITY, OVERRIDE_GRANTED_ENGINEERING)
+		data["security_m"] = GLOB.access_overrides.override_active(OVERRIDE_SECURITY, OVERRIDE_GRANTED_MEDICAL)
 	
-	data["service_e"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_ENGINEERING)
-	data["service_m"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_MEDICAL)
-	data["service_s"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_SECURITY)
+		data["service_e"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_ENGINEERING)
+		data["service_m"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_MEDICAL)
+		data["service_s"] = GLOB.access_overrides.override_active(OVERRIDE_SERVICE, OVERRIDE_GRANTED_SECURITY)
 	
-	data["supply_e"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_ENGINEERING)
-	data["supply_m"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_MEDICAL)
-	data["supply_s"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_SECURITY)
+		data["supply_e"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_ENGINEERING)
+		data["supply_m"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_MEDICAL)
+		data["supply_s"] = GLOB.access_overrides.override_active(OVERRIDE_SUPPLY, OVERRIDE_GRANTED_SECURITY)
 	
-	data["auth_engineering"] = auth_engineering
-	data["auth_medical"] = auth_medical
-	data["auth_security"] = auth_security
-	data["auth_evac"] = auth_evac
-	data["auth_logs"] = auth_logs
-	data["auth_revoke"] = auth_revoke
+		data["auth_engineering"] = auth_engineering
+		data["auth_medical"] = auth_medical
+		data["auth_security"] = auth_security
+		data["auth_evac"] = auth_evac
+		data["auth_logs"] = auth_logs
+		data["auth_revoke"] = auth_revoke
 
-	data["logs"] = GLOB.access_overrides.override_logs
+		data["logs"] = GLOB.access_overrides.override_logs
 	
-	if(evacuation_controller && evacuation_controller.is_evacuating() && evacuation_controller.emergency_evacuation)					
-		data["evac"] = TRUE
-	else
-		data["evac"] = FALSE		
-		
-	if(program)
-		if(program.computer_emagged)
-			data["state"] = STATE_EMAG
-		if(program.computer)
-			data["printer"] = !!program.computer.nano_printer
+		if(GLOB.access_overrides.evac)
+			data["evac"] = TRUE
 		else
-			data["printer"] = 0
+			data["evac"] = FALSE
+
+		if(program)
+			if(program.computer_emagged)
+				data["state"] = STATE_EMAG
+			if(program.computer)
+				data["printer"] = !!program.computer.nano_printer
+			else
+				data["printer"] = 0
+	else
+		//The access override isn't initailized at all for some reason, disable the application.
+		data["state"] = STATE_ERROR
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 
@@ -256,28 +248,28 @@ GLOBAL_DATUM(access_overrides, /datum/access_overrides)
 		return TOPIC_HANDLED
 	
 	if(href_list["revoke_access"])
-		var/department = text2num(href_list["revoke_access"])
+		var/department = href_list["revoke_access"]
 		var/overriding_department = text2num(href_list["o_dept"])
 
-		GLOB.access_overrides.revoke_access(overriding_department, department)
+		GLOB.access_overrides.revoke_access(department, overriding_department)
 		GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_REVOKE, overriding_department, department)
 		return TOPIC_REFRESH
 
 	if(href_list["grant_access"])
-		var/department = text2num(href_list["revoke_access"])
+		var/department = href_list["grant_access"]
 		var/overriding_department = text2num(href_list["o_dept"])
 
-		GLOB.access_overrides.set_override(overriding_department, department)
+		GLOB.access_overrides.set_override(department, overriding_department)
 		GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_GRANT, overriding_department, department)
 		return TOPIC_REFRESH
 
 	if(href_list["revoke"])		
-		GLOB.access_overrides.revoke_access(OVERRIDE_GRANTED_NONE, OVERRIDE_GENERAL)
+		GLOB.access_overrides.revoke_access(OVERRIDE_GENERAL, OVERRIDE_GRANTED_NONE)
 		GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_REVOKE, OVERRIDE_GRANTED_NONE, OVERRIDE_GENERAL)
 		return TOPIC_REFRESH
 
 	if(href_list["evac"])
-		GLOB.access_overrides.set_override(OVERRIDE_GRANTED_ALL, OVERRIDE_GENERAL)
+		GLOB.access_overrides.set_override(OVERRIDE_GENERAL, OVERRIDE_GRANTED_ALL)
 		GLOB.access_overrides.generate_log(user, OVERRIDE_LOG_REVOKE, OVERRIDE_GRANTED_ALL, OVERRIDE_GENERAL)
 		return TOPIC_REFRESH
 

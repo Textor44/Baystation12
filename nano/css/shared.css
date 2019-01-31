@@ -705,3 +705,21 @@ th.bot {
 .candystripe:nth-child(odd) {
 	background-color: rgba(0, 0, 0, 0.16);
 }
+
+.candystripeG {
+	background-color: rgba(148, 148, 148, 0.25);
+	color: lawngreen
+}
+
+.candystripeG:nth-child(odd) {
+	background-color: rgba(0,0,0, 0.16)
+	color: lawngreen
+}
+.candystripeR {
+	background-color: rgba(148, 148, 148, 0.25);
+	color: red
+}
+.candystripeR:nth-child(odd) {
+	background-color: rgba(0,0,0, 0.16)
+	color: red
+}

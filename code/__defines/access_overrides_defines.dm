@@ -2,15 +2,15 @@
 //or everything will die horribly.
 
 //Deparment Codes
-#define OVERRIDE_NONE 0
-#define OVERRIDE_GENERAL 1
-#define OVERRIDE_COMMAND 2
-#define OVERRIDE_ENGINEERING 3
-#define OVERRIDE_MEDICAL 4
-#define OVERRIDE_RESEARCH 5
-#define OVERRIDE_SECURITY 6
-#define OVERRIDE_SERVICE 7
-#define OVERRIDE_SUPPLY 8
+#define OVERRIDE_NONE "None"
+#define OVERRIDE_GENERAL "All"
+#define OVERRIDE_COMMAND "Command"
+#define OVERRIDE_ENGINEERING "Engineering"
+#define OVERRIDE_MEDICAL "Medical"
+#define OVERRIDE_RESEARCH "Research"
+#define OVERRIDE_SECURITY "Security"
+#define OVERRIDE_SERVICE "Service"
+#define OVERRIDE_SUPPLY "Supply"
 
 //Override Grant Definition flags
 #define OVERRIDE_GRANTED_NONE 0
