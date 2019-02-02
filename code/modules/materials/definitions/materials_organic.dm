@@ -11,6 +11,7 @@
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	conductive = 0
+	construction_difficulty = 1
 	chem_products = list(
 				/datum/reagent/toxin/plasticide = 20
 				)
@@ -29,7 +30,7 @@
 	lore_text = "A fibrous structural material harvested from trees. Don't get a splinter."
 	adjective_name = "wooden"
 	stack_type = /obj/item/stack/material/wood
-	icon_colour = "#824b28"
+	icon_colour = COLOR_WOOD
 	integrity = 50
 	icon_base = "solid"
 	table_icon_base = "solid"
@@ -49,6 +50,7 @@
 	sheet_plural_name = "planks"
 	hitsound = 'sound/effects/woodhit.ogg'
 	conductive = 0
+	construction_difficulty = 1
 	chem_products = list(
 				/datum/reagent/carbon = 10,
 				/datum/reagent/water = 5
@@ -93,6 +95,7 @@
 	conductive = 0
 	stack_type = null
 	hidden_from_codex = TRUE
+	construction_difficulty = 1
 
 //TODO PLACEHOLDERS:
 /material/leather
@@ -105,6 +108,7 @@
 	conductive = 0
 	stack_type = null
 	hidden_from_codex = TRUE
+	construction_difficulty = 1
 
 /material/carpet
 	name = MATERIAL_CARPET
@@ -118,6 +122,7 @@
 	sheet_plural_name = "tiles"
 	conductive = 0
 	stack_type = null
+	construction_difficulty = 1
 
 /material/cloth
 	name = MATERIAL_COTTON
@@ -130,6 +135,7 @@
 	conductive = 0
 	stack_type = null
 	hidden_from_codex = TRUE
+	construction_difficulty = 1
 
 /material/cloth/carpet
 	name = "carpet"

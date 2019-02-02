@@ -1,9 +1,10 @@
 GLOBAL_LIST_EMPTY(skills)
 
 /decl/hierarchy/skill
-	var/ID = "none"					// ID of this skill. Needs to be unique.
-	name = "None" 				// Name of the skill. This is what the player sees.
-	var/desc = "Placeholder skill" 	// Generic description of this skill.
+	var/ID = "none"                        // ID of this skill. Needs to be unique.
+	name = "None"                          // Name of the skill. This is what the player sees.
+	hierarchy_type = /decl/hierarchy/skill // Don't mess with this without changing how Initialize works.
+	var/desc = "Placeholder skill"         // Generic description of this skill.
 
    	// Names for different skill values, in order from 1 up.
 	var/levels = list( 		"Unskilled"			= "Unskilled Description",
@@ -11,8 +12,9 @@ GLOBAL_LIST_EMPTY(skills)
 							"Trained"			= "Trained Description",
 							"Experienced"		= "Experienced Description",
 							"Master"		= "Professional Description")
-	var/difficulty = SKILL_AVERAGE   //Used to compute how expensive the skill is
-	var/default_max = SKILL_ADEPT    //Makes the skill capped at this value in selection unless overriden at job level.
+	var/difficulty = SKILL_AVERAGE         //Used to compute how expensive the skill is
+	var/default_max = SKILL_ADEPT          //Makes the skill capped at this value in selection unless overriden at job level.
+	var/prerequisites                      // A list of skill prerequisites, if needed.
 
 /decl/hierarchy/skill/proc/get_cost(var/level)
 	switch(level)
@@ -23,13 +25,14 @@ GLOBAL_LIST_EMPTY(skills)
 		else
 			return 0
 
-//Do not attempt to get_decl any of these except /decl/hierarchy/skill from decls_repository. Use the children variable or GLOB.skills instead.
-/decl/hierarchy/skill/New(var/full_init = TRUE)
-	..(full_init)
-	if(full_init)
+/decl/hierarchy/skill/proc/update_special_effects(mob/mob, level)
+
+/decl/hierarchy/skill/Initialize()
+	..()
+	if(is_hidden_category())
 		if(!GLOB.skills.len)
 			for(var/decl/hierarchy/skill/C in children)
-				GLOB.skills += C.children
+				GLOB.skills += C.get_descendents()
 		else
 			log_error("<span class='warning'>Warning: multiple instances of /decl/hierarchy/skill have been created!</span>")
 
@@ -84,6 +87,11 @@ GLOBAL_LIST_EMPTY(skills)
 						"Experienced"		= "With your experience, you can easily create paperwork for any eventuality, and write reports which are clear and understandable. You have an excellent knowledge of the law, possibly including formal legal training.",
 						"Master"		= "You can make paperwork dance to your bidding, and navigate the most byzantine bureaucratic structures with ease and familiarity. Your reports are works of literature. Your knowledge of the law is both broad and intimate, and you may be certified to practice law.")
 
+/decl/hierarchy/skill/organizational/bureaucracy/update_special_effects(mob/mob, level)
+	mob.remove_language(LANGUAGE_LEGALESE)
+	if(level >= SKILL_EXPERT)
+		mob.add_language(LANGUAGE_LEGALESE)
+
 /decl/hierarchy/skill/organizational/finance
 	ID = "finance"
 	name = "Finance"
@@ -106,24 +114,23 @@ GLOBAL_LIST_EMPTY(skills)
 						"Experienced"		= "You can use all kinds of space suits, including specialized versions. Your years of experience in EVA keep you from being disoriented in space, and you have experience using a jetpack to move around. <br>- You cannot slip anymore.",
 						"Master"		= "You are just as much at home in a vacuum as in atmosphere. You probably do your job almost entirely EVA.<br>- You cannot get floored anymore.<br>- You get bonus speed for jetpacks.")
 
-/decl/hierarchy/skill/general/mech
+/decl/hierarchy/skill/general/EVA/mech
 	ID = "mech"
 	name = "Exosuit Operation"
-	desc = "Describes your experience and understanding of operating heavy machinery, which includes mechs and other large exosuits. Used in piloting mechs."
-	levels = list( "Unskilled"			= "You know what a mech is, and if you see one you can recognize which type it is. If your department uses exosuits, you know roughly what their capabilities are. If you were to get into one, you'd have about fifty-fifty odds of getting it moving in the direction you wanted it to go.",
-						"Basic"				= "You can drive an exosuit safely, but you specialize in only one type of mech that your department regularly uses. You're not an expert and you fumble the controls sometimes, but you're going where you want to go and you're pretty sure you know what those buttons do.",
-						"Trained"			= "You are quite comfortable using the type of exosuit you're most familiar with. You may spend entire shifts piloting one, and you're familiar with its functions. You can do basic maintenance. You can use most types of exosuits, unless they're very exotic or specialized.",
-						"Experienced"		= "You can use any type of mech comfortably and automatically. To you, a mech is more like a second skin than a vehicle. You can maintain, repair, and probably build exosuits.",
-						"Master"		= "You are a professional exosuit technician, and are well-versed in construction and maintenance procedures. You can design and construct exosuits suitable for any needs.")
+	desc = "Allows you to operate exosuits well."
+	levels = list("Untrained" = "You are unfamiliar with exosuit controls, and if you attempt to use them you are liable to make mistakes.",
+		"Trained" = "You are proficient in exosuit operation and safety, and can use them without penalties.")
+	prerequisites = list(SKILL_EVA = SKILL_ADEPT)
+	default_max = SKILL_BASIC
 	difficulty = SKILL_AVERAGE
 
 /decl/hierarchy/skill/general/pilot
 	ID = "pilot"
 	name = "Piloting"
 	desc = "Describes your experience and understanding of piloting spacecraft, from small and short-range pods to corvette sized vessels."
-	levels = list( "Unskilled"			= "You know what a spacecraft is, and you might have an abstract understanding of the differences between various ships. If your department is involved in the use of spacecraft, you know roughly what their capabilities are. You might be able to fly a spacecraft in a videogame. If you were to take the Helm of a smaller vessel, you might be able to move it with proper guidance.<br>- You can fly ships but their movement might be randomized. Travel speed decreases with level.<br>- You can fully operate the GUP.",
-						"Basic"				= "You can pilot a small, short-range craft safely, but larger ships are out of your area of expertise. You are by no means an expert, and probably don't have much training. Skills of this level are typical for deck crew.<br>- You can fully operate the Aquila and the Charon.",
-						"Trained"			= "You are a trained pilot, and can safely operate anything from a small craft to a corvette. You can spend extended periods of time piloting a spacecraft, and you're versed in the abilities of different ships, and what makes them function. You can do basic maintenance on smaller vessels, and perform most basic maneuvers. You can use armed spacecraft. You can make basic calculations relating to piloting. Skills of this level are typical for newer pilots. You have probably received formal piloting training.<br>- You can fully operate the Torch.",
+	levels = list( "Unskilled"			= "You know what a spacecraft is, and you might have an abstract understanding of the differences between various ships. If your department is involved in the use of spacecraft, you know roughly what their capabilities are. You might be able to fly a spacecraft in a videogame. If you were to take the Helm of a smaller vessel, you might be able to move it with proper guidance.<br>- You can fly ships but their movement might be randomized. Travel speed decreases with level.<br>- You can operate the GUP.",
+						"Basic"				= "You can pilot a small, short-range craft safely, but larger ships are out of your area of expertise. You are by no means an expert, and probably don't have much training. Skills of this level are typical for deck crew.<br>- You can fly ships but their movement might be randomized.<br>- You can operate the Aquila and the Charon.",
+						"Trained"			= "You are a trained pilot, and can safely operate anything from a small craft to a corvette. You can spend extended periods of time piloting a spacecraft, and you're versed in the abilities of different ships, and what makes them function. You can do basic maintenance on smaller vessels, and perform most basic maneuvers. You can use armed spacecraft. You can make basic calculations relating to piloting. Skills of this level are typical for newer pilots. You have probably received formal piloting training.<br>- Ship movement is no longer randomized.<br>- You can operate the Torch.",
 						"Experienced"		= "You are an experienced pilot, and can safely take the helm of many types of craft. You could probably live in a spacecraft, and you're very well versed in essentially everything related to space-faring vessels. Not only can you fly a ship, but you can perform difficult maneuvers, and make most calculations related to piloting a spacecraft. You can maintain a ship. Skills of this level are typical for very experienced pilots. You have received formal piloting training.",
 						"Master"		= "Not only are you an exceptional pilot, but you have mastered peripheral functions such as stellar navigation and bluespace jump plotting. You have experience performing complex maneuvers, managing squadrons of small craft, and operating in hostile environments.<br>- Less meteors will hit the ship while passing through meteor fields.")
 	difficulty = SKILL_AVERAGE
@@ -230,10 +237,10 @@ GLOBAL_LIST_EMPTY(skills)
 	ID = "construction"
 	name = "Construction"
 	desc = "Your ability to construct various buildings, such as walls, floors, tables and so on. Note that constructing devices such as APCs additionally requires the Electronics skill. A low level of this skill is typical for janitors, a high level of this skill is typical for engineers."
-	levels = list( "Unskilled"			= "You can move furniture, assemble or disassemble chairs and tables (sometimes they even stay assembled), bash your way through a window, open a crate, or pry open an unpowered airlock. You can recognize and use basic hand tools and inflatable barriers, though not very well.<br>- You can construct items from stacks of materials with a low speed. Speed and the amount of recipes increase by level.",
-						"Basic"				= "You can dismantle or build a wall or window, build furniture, redecorate a room, and replace floor tiles and carpeting. You can safely use a welder without burning your eyes, and using hand tools is second nature to you.<br>- You can construct items from Bronze, Gold, Osmium, Plasteel, Platinum, Reinforced Glass, Sandstone, Silver, and Titanium.",
-						"Trained"			= "You can build, repair, or dismantle most things, but will occasionally make mistakes and have things not come out the way you expected.<br>- You can construct items from Deuterium, Diamond, Metallic Hydrogen, Osmium-Carbide Plasteel, Phoron, Phoron Glass, Tritium, and Uranium.<br>- You can construct furnitures.<br>- You can construct simple objects such as light fixtures, crude weapons, and wall-mounted frames.",
-						"Experienced"		= "You know how to seal a breach, rebuild broken piping, and repair major damage. You know the basics of structural engineering.<br>- You can construct complex objects such as machine and weapon frames.",
+	levels = list( "Unskilled"			= "You can break furniture, disassemble chairs and tables, bash your way through a window, open a crate, or pry open an unpowered airlock. You can recognize and use basic hand tools and inflatable barriers, though not very well.",
+						"Basic"				= "You can dismantle or build a wall or window, redecorate a room, and replace floor tiles and carpeting. You can safely use a welder without burning your eyes, and using hand tools is second nature to you.<br>- You can construct items from Steel, Wood and Plastic.",
+						"Trained"			= "You can build, repair, or dismantle most things, but will occasionally make mistakes and have things not come out the way you expected.<br>- You can construct items from Bronze, Gold, Osmium, Plasteel, Platinum, Reinforced Glass, Sandstone, Silver, Deuterium, Metallic Hydrogen, Phoron, Phoron Glass, Tritium, and Uranium.<br>- You can construct furnitures.<br>- You can construct simple objects such as light fixtures, crude weapons, and wall-mounted frames.",
+						"Experienced"		= "You know how to seal a breach, rebuild broken piping, and repair major damage. You know the basics of structural engineering.<br>- You can construct items from Osmium-Carbide Plasteel, Titanium, Diamond and make complex objects such as machine and weapon frames.",
 						"Master"		= "You are a construction worker or engineer. You could pretty much rebuild the installation or ship from the ground up, given supplies, and you're efficient and skilled at repairing damage.")
 	difficulty = SKILL_EASY
 

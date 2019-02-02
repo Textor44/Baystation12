@@ -47,7 +47,7 @@
 			return 0
 	return null
 
-/obj/item/weapon/melee/baton/update_icon()
+/obj/item/weapon/melee/baton/on_update_icon()
 	if(status)
 		icon_state = "[initial(name)]_active"
 	else if(!bcell)
@@ -125,7 +125,7 @@
 		update_icon()
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user)
-	if(status && (CLUMSY in user.mutations) && prob(50))
+	if(status && (MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='danger'>You accidentally hit yourself with the [src]!</span>")
 		user.Weaken(30)
 		deductcharge(hitcost)
@@ -230,7 +230,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "electrified_arm"
 
-/obj/item/weapon/melee/baton/robot/electrified_arm/update_icon()
+/obj/item/weapon/melee/baton/robot/electrified_arm/on_update_icon()
 	if(status)
 		icon_state = "electrified_arm_active"
 		set_light(0.4, 0.1, 1, 2, "#006aff")

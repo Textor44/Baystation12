@@ -1,18 +1,17 @@
 /obj/machinery/mecha_part_fabricator
-	icon = 'icons/obj/robotics.dmi'
-	icon_state = "fab-idle"
 	name = "Exosuit Fabricator"
 	desc = "A machine used for construction of robotics and mechas."
+	icon = 'icons/obj/robotics.dmi'
+	icon_state = "fab-idle"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 5000
 	req_access = list(access_robotics)
 
 	var/speed = 1
 	var/mat_efficiency = 1
-	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0)
+	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
@@ -50,14 +49,14 @@
 	if(stat)
 		return
 	if(busy)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		progress += speed
 		check_build()
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 	update_icon()
 
-/obj/machinery/mecha_part_fabricator/update_icon()
+/obj/machinery/mecha_part_fabricator/on_update_icon()
 	overlays.Cut()
 	if(panel_open)
 		icon_state = "fab-o"

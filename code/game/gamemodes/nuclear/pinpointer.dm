@@ -73,7 +73,7 @@
 	else
 		beeping--
 
-/obj/item/weapon/pinpointer/update_icon()
+/obj/item/weapon/pinpointer/on_update_icon()
 	overlays.Cut()
 	if(!active)
 		return
@@ -109,7 +109,7 @@
 	else if(distance > 4*world.view)
 		pointer.color = COLOR_RED
 	else
-		pointer.color = COLOR_BLUE
+		pointer.color = COLOR_YELLOW
 	overlays += pointer
 
 //Nuke ops locator

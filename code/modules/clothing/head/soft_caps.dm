@@ -15,7 +15,7 @@
 	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
 	update_icon()
 
-/obj/item/clothing/head/soft/update_icon()
+/obj/item/clothing/head/soft/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(flipped)
 		icon_state = "[bis.base_icon_state]_flipped"
@@ -104,4 +104,4 @@
 /obj/item/clothing/head/soft/sec/corp/guard
 	name = "corporate security cap"
 	desc = "It's field cap in corporate colors."
-	icon_state = "ntwhitesoft"
+	icon_state = "corpsec_soft"

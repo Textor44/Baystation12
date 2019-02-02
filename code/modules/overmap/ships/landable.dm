@@ -1,4 +1,4 @@
-// These come with shuttle functionality. Need to be assigned a (unique) shuttle datum name. 
+// These come with shuttle functionality. Need to be assigned a (unique) shuttle datum name.
 // Mapping location doesn't matter, so long as on a map loaded at the same time as the shuttle areas.
 // Multiz shuttles currently not supported. Non-autodock shuttles currently not supported.
 
@@ -44,6 +44,12 @@
 	landmark = new (center_loc, shuttle)
 	add_landmark(landmark, shuttle)
 
+/obj/effect/overmap/ship/landable/get_areas()
+	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
+	if(!shuttle_datum)
+		return list()
+	return shuttle_datum.find_childfree_areas()
+
 /obj/effect/overmap/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
@@ -53,7 +59,7 @@
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
-	autoset = 1
+	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 
 /obj/effect/shuttle_landmark/ship/Initialize(mapload, shuttle_name)
 	landmark_tag += "_[shuttle_name]"
@@ -85,12 +91,12 @@
 	if(!target || target == src)
 		return
 	forceMove(target)
-	speed = list(0, 0)
-	adjust_speed(0, 0) // Resets star movement and icon.
+	halt()
 
 /obj/effect/overmap/ship/landable/proc/on_takeoff(obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
 	if(!isturf(loc))
 		forceMove(get_turf(loc))
+		unhalt()
 
 /obj/effect/overmap/ship/landable/get_landed_info()
 	switch(status)

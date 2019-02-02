@@ -24,7 +24,7 @@
 	throw_range = 9
 	w_class = ITEM_SIZE_SMALL
 
-	matter = list(MATERIAL_GLASS = 25,MATERIAL_STEEL = 75)
+	matter = list(MATERIAL_GLASS = 25, MATERIAL_ALUMINIUM = 75)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
 
@@ -377,7 +377,7 @@
 			"server" = null, // the last server to log this signal
 			"reject" = 0,	// if nonzero, the signal will not be accepted by any broadcasting machinery
 			"level" = position.z, // The source's z level
-			"channel_tag" = "#unkn", // channel tag for the message
+			"channel_tag" = "[connection.frequency]", // channel tag for the message
 			"channel_color" = channel_color_presets["Menacing Maroon"], // radio message color
 			"language" = speaking,
 			"verb" = verb
@@ -465,7 +465,7 @@
 	return Broadcast_Message(connection, M, voicemask, pick(M.speak_emote),
 					  src, message, displayname, jobname, real_name, M.voice_name,
 					  filter_type, signal.data["compression"], GetConnectedZlevels(position.z), connection.frequency, verb, speaking,
-					  "#unkn", channel_color_presets["Menacing Maroon"])
+					  "[connection.frequency]", channel_color_presets["Menacing Maroon"])
 
 
 /obj/item/device/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
@@ -514,7 +514,7 @@
 		if (!accept)
 			for (var/ch_name in channels)
 				var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-				if (RF.frequency==freq && (channels[ch_name]&FREQ_LISTENING))
+				if (RF && RF.frequency==freq && (channels[ch_name]&FREQ_LISTENING))
 					accept = 1
 					break
 		if (!accept)
@@ -623,18 +623,12 @@
 
 	if(isScrewdriver(W))
 		if(keyslot)
-
-
 			for(var/ch_name in channels)
 				radio_controller.remove_object(src, radiochannels[ch_name])
 				secure_radio_connections[ch_name] = null
 
-
 			if(keyslot)
-				var/turf/T = get_turf(user)
-				if(T)
-					keyslot.loc = T
-					keyslot = null
+				keyslot.dropInto(user.loc)
 
 			recalculateChannels()
 			to_chat(user, "You pop out the encryption key in the radio!")
@@ -653,8 +647,6 @@
 			keyslot = W
 
 		recalculateChannels()
-
-	return
 
 /obj/item/device/radio/borg/recalculateChannels()
 	src.channels = list()

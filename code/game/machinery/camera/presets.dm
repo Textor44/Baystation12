@@ -22,9 +22,6 @@
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
 
-/obj/machinery/camera/network/nanotrasen
-	network = list(NETWORK_NANOTRASEN)
-
 // EMP
 
 /obj/machinery/camera/emp_proof/Initialize()
@@ -97,4 +94,4 @@
 		mult++
 	if (isMotion())
 		mult++
-	active_power_usage = mult*initial(active_power_usage)
+	change_power_consumption(mult*initial(active_power_usage), POWER_USE_ACTIVE)

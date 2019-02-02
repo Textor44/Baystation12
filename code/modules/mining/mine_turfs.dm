@@ -57,7 +57,7 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/is_plating()
 	return 1
 
-/turf/simulated/mineral/update_icon(var/update_neighbors)
+/turf/simulated/mineral/on_update_icon(var/update_neighbors)
 	if(!istype(mineral))
 		SetName(initial(name))
 		icon_state = "rock"
@@ -157,8 +157,7 @@ var/list/mining_floors = list()
 
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
-
-	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!user.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
@@ -364,7 +363,7 @@ var/list/mining_floors = list()
 	for(var/j in 1 to rand(1, 3 + max(min(severity, 1), 0) * 2))
 		switch(rand(1,7))
 			if(1)
-				var/obj/item/stack/rods/R = new(src)
+				var/obj/item/stack/material/rods/R = new(src)
 				R.amount = rand(5,25)
 
 			if(2)

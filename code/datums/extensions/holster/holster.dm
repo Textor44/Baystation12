@@ -68,10 +68,15 @@
 	if(user.get_active_hand() && user.get_inactive_hand())
 		to_chat(user, "<span class='warning'>You need an empty hand to draw \the [holstered]!</span>")
 		return 1
-	if(avoid_intent || user.a_intent != I_HELP)
+	var/using_intent_preference = user.client ? user.client.get_preference_value(/datum/client_preference/holster_on_intent) == GLOB.PREF_YES : FALSE
+	if(avoid_intent || (using_intent_preference && user.a_intent != I_HELP))
 		var/sound_vol = 25
 		if(user.a_intent == I_HURT)
 			sound_vol = 50
+			if(istype(holstered, /obj/item/weapon/gun))
+				var/obj/item/weapon/gun/G = holstered
+				if(user.skill_check(SKILL_WEAPONS, SKILL_EXPERT) && G.safety()) //Experienced shooter will disable safety before shooting.
+					G.safety_state = 0
 			usr.visible_message(
 				"<span class='danger'>\The [user] draws \the [holstered], ready to go!</span>",
 				"<span class='warning'>You draw \the [holstered], ready to go!</span>"
@@ -84,9 +89,9 @@
 		if(sound_out)
 			playsound(get_turf(atom_holder), sound_out, sound_vol)
 		holstered.add_fingerprint(user)
+		holstered.queue_icon_update()
 		user.put_in_hands(holstered)
 		storage.w_class = initial(storage.w_class)
-		clear_holster()
 		atom_holder.update_icon()
 		return 1
 	return 0

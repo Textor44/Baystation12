@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	layer = TABLE_LAYER
 	throwpass = 1
 	var/flipped = 0
@@ -17,7 +17,6 @@
 	var/can_plate = 1
 
 	var/manipulating = 0
-	var/material/material = null
 	var/material/reinforced = null
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
@@ -45,7 +44,7 @@
 
 	health += maxhealth - old_maxhealth
 
-/obj/structure/table/proc/take_damage(amount)
+/obj/structure/table/take_damage(amount)
 	// If the table is made of a brittle material, and is *not* reinforced with a non-brittle material, damage is multiplied by TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	if(material && material.is_brittle())
 		if(reinforced)
@@ -295,7 +294,7 @@
 	qdel(src)
 	return shards
 
-/obj/structure/table/update_icon()
+/obj/structure/table/on_update_icon()
 	if(flipped != 1)
 		icon_state = "blank"
 		overlays.Cut()

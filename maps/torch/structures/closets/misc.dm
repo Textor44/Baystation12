@@ -1,11 +1,33 @@
+/decl/closet_appearance/secure_closet/torch/sol
+	color = COLOR_BABY_BLUE
+	extra_decals = list(
+		"stripe_vertical_mid_full" =  COLOR_OFF_WHITE
+	)
+
+/decl/closet_appearance/secure_closet/torch/sol/rep
+	color = COLOR_BABY_BLUE
+	extra_decals = list(
+		"stripe_vertical_left_full" =  COLOR_OFF_WHITE,
+		"stripe_vertical_right_full" =  COLOR_OFF_WHITE
+	)
+
+/decl/closet_appearance/secure_closet/torch/corporate
+	color = COLOR_BOTTLE_GREEN
+	extra_decals = list(
+		"stripe_vertical_mid_full" = COLOR_OFF_WHITE
+	)
+
+/decl/closet_appearance/secure_closet/torch/corporate/liaison
+	extra_decals = list(
+		"stripe_vertical_left_full" =  COLOR_OFF_WHITE,
+		"stripe_vertical_right_full" = COLOR_OFF_WHITE,
+		"command" = COLOR_OFF_WHITE
+	)
+
 /obj/structure/closet/secure_closet/liaison
 	name = "\improper corporate liaison's locker"
 	req_access = list(access_liaison)
-	icon_state = "corp21"
-	icon_closed = "corp2"
-	icon_locked = "corp21"
-	icon_opened = "corp2open"
-	icon_off = "corp2off"
+	closet_appearance = /decl/closet_appearance/secure_closet/torch/corporate/liaison
 
 /obj/structure/closet/secure_closet/liaison/WillContain()
 	return list(
@@ -24,14 +46,38 @@
 		/obj/item/weapon/storage/fakebook
 	)
 
+/decl/closet_appearance/secure_closet/torch/corporate/bodyguard
+	extra_decals = list(
+		"stripe_vertical_left_full" =  COLOR_OFF_WHITE,
+		"stripe_vertical_right_full" = COLOR_OFF_WHITE,
+		"security" = COLOR_OFF_WHITE
+	)
+
+/obj/structure/closet/secure_closet/bodyguard
+	name = "\improper corporate protection locker"
+	req_access = list(access_sec_guard)
+	closet_appearance = /decl/closet_appearance/secure_closet/torch/corporate/bodyguard
+
+/obj/structure/closet/secure_closet/bodyguard/WillContain()
+	return list(
+		/obj/item/device/flash,
+		/obj/item/clothing/accessory/storage/holster/armpit,
+		/obj/item/weapon/gun/energy/gun/secure/corporate,
+		/obj/item/weapon/storage/secure/briefcase,
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/under/rank/internalaffairs/plain/nt,
+		/obj/item/clothing/suit/storage/toggle/suit/black,
+		/obj/item/clothing/gloves/color/black,
+		/obj/item/clothing/head/helmet/nt/guard,
+		/obj/item/clothing/suit/armor/pcarrier/medium/nt,
+		/obj/item/clothing/glasses/sunglasses/big,
+		/obj/item/clothing/accessory/badge/nanotrasen
+	)
+
 /obj/structure/closet/secure_closet/representative
 	name = "\improper Sol Central Government representative's locker"
 	req_access = list(access_representative)
-	icon_state = "solsecure1"
-	icon_closed = "solsecure"
-	icon_locked = "solsecure1"
-	icon_opened = "solsecureopen"
-	icon_off = "solsecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/torch/sol/rep
 
 /obj/structure/closet/secure_closet/representative/WillContain()
 	return list(
@@ -55,11 +101,7 @@
 /obj/structure/closet/secure_closet/crew
 	name = "crew equipment locker"
 	req_access = list(access_solgov_crew)
-	icon_state = "sol1"
-	icon_closed = "sol"
-	icon_locked = "sol1"
-	icon_opened = "solopen"
-	icon_off = "soloff"
+	closet_appearance = /decl/closet_appearance/secure_closet/torch/sol
 
 /obj/structure/closet/secure_closet/crew/WillContain()
 	return list(
@@ -72,11 +114,8 @@
 /obj/structure/closet/secure_closet/crew/research
 	name = "research equipment locker"
 	req_access = list(access_nanotrasen)
-	icon_state = "corp1"
-	icon_closed = "corp"
-	icon_locked = "corp1"
-	icon_opened = "corpopen"
-	icon_off = "corpoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/torch/corporate
+
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm
 	name = "sidearm cabinet"

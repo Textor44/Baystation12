@@ -2,6 +2,7 @@
  * Contains:
  * 		Beds
  *		Roller beds
+ *		Mattresses
  */
 
 /*
@@ -16,7 +17,6 @@
 	can_buckle = 1
 	buckle_dir = SOUTH
 	buckle_lying = 1
-	var/material/material
 	var/material/padding_material
 	var/base_icon = "bed"
 	var/material_alteration = MATERIAL_ALTERATION_ALL
@@ -25,7 +25,7 @@
 	..(newloc)
 	color = null
 	if(!new_material)
-		new_material = MATERIAL_STEEL
+		new_material = MATERIAL_ALUMINIUM
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -38,7 +38,7 @@
 	return material
 
 // Reuse the cache/code from stools, todo maybe unify.
-/obj/structure/bed/update_icon()
+/obj/structure/bed/on_update_icon()
 	// Prep icon.
 	icon_state = ""
 	overlays.Cut()
@@ -194,7 +194,7 @@
 	buckle_pixel_shift = "x=0;y=6"
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
 
-/obj/structure/bed/roller/update_icon()
+/obj/structure/bed/roller/on_update_icon()
 	if(density)
 		icon_state = "up"
 	else
@@ -249,3 +249,17 @@
 	icon_state = "folded"
 	object_type = /obj/item/roller
 	interact_type = /obj/structure/bed/roller
+/*
+ * Mattresses
+ */
+/obj/structure/mattress
+	name = "mattress"
+	icon = 'icons/obj/furniture.dmi'
+	icon_state = "mattress"
+	desc = "A bare mattress. It doesn't look very comfortable."
+	anchored = 0
+
+/obj/structure/mattress/dirty
+	name = "dirty mattress"
+	icon_state = "dirty_mattress"
+	desc = "A dirty, smelly mattress covered in body fluids. You wouldn't want to touch this."

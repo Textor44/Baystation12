@@ -1,5 +1,5 @@
 /obj/machinery/space_heater
-	use_power = 0
+	use_power = POWER_USE_OFF
 	anchored = 0
 	density = 1
 	icon = 'icons/obj/atmos.dmi'
@@ -11,7 +11,7 @@
 	var/set_temperature = T0C + 20	//K
 	var/active = 0
 	var/heating_power = 40 KILOWATTS
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	clicksound = "switch"
 
 
@@ -20,7 +20,7 @@
 	cell = new/obj/item/weapon/cell/high(src)
 	update_icon()
 
-/obj/machinery/space_heater/update_icon(var/rebuild_overlay = 0)
+/obj/machinery/space_heater/on_update_icon(var/rebuild_overlay = 0)
 	if(!on)
 		icon_state = "sheater-off"
 		set_light(0)
@@ -186,7 +186,7 @@
 					if(!powered())
 						cell.use(power_draw*CELLRATE)
 					else
-						use_power(power_draw)
+						use_power_oneoff(power_draw)
 					active = heat_transfer
 
 				env.merge(removed)

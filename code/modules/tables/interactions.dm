@@ -75,27 +75,8 @@
 		step(O, get_dir(O, src))
 	return
 
-
 /obj/structure/table/attackby(obj/item/W, mob/user, var/click_params)
 	if (!W) return
-
-	// Handle harm intent grabbing/tabling.
-	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
-		if (istype(G.affecting, /mob/living/carbon/human))
-			var/obj/occupied = turf_is_crowded()
-			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-				return
-
-			if(G.force_danger())
-				G.affecting.forceMove(src.loc)
-				G.affecting.Weaken(rand(2,5))
-				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
-				qdel(W)
-			else
-				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
-			return
 
 	// Handle dismantling or placing things on the table from here on.
 	if(isrobot(user))

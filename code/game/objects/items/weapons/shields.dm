@@ -167,7 +167,7 @@
 	return base_block_chance
 
 /obj/item/weapon/shield/energy/attack_self(mob/living/user as mob)
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5)
 	active = !active
@@ -193,7 +193,7 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/weapon/shield/energy/update_icon()
+/obj/item/weapon/shield/energy/on_update_icon()
 	icon_state = "eshield[active]"
 	if(active)
 		set_light(0.4, 0.1, 1, 2, "#006aff")

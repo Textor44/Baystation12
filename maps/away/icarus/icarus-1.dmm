@@ -69,7 +69,7 @@
 /area/icarus/vessel)
 "au" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/flame/lighter/zippo/random,
 /obj/random/smokes,
 /turf/simulated/floor/wood,
 /area/icarus/vessel)
@@ -1472,7 +1472,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eR" = (
@@ -1522,7 +1522,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eW" = (
@@ -1548,7 +1548,7 @@
 /area/icarus/open)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fa" = (
@@ -1619,7 +1619,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fh" = (
@@ -1634,13 +1634,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fk" = (
@@ -1699,7 +1699,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fq" = (
@@ -2655,21 +2655,15 @@
 /turf/unsimulated/mineral,
 /area/space)
 "jb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav1{
-	autoset = 1
-	},
+/obj/effect/shuttle_landmark/nav_icarus/nav1,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "kb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav2{
-	autoset = 1
-	},
+/obj/effect/shuttle_landmark/nav_icarus/nav2,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "lb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav3{
-	autoset = 1
-	},
+/obj/effect/shuttle_landmark/nav_icarus/nav3,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "mb" = (

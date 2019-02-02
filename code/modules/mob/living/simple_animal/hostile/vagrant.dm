@@ -55,6 +55,8 @@
 
 /mob/living/simple_animal/hostile/vagrant/Life()
 	. = ..()
+	if(!.)
+		return FALSE
 	if(gripping)
 		if(!(get_turf(src) == get_turf(gripping)))
 			gripping = null
@@ -84,7 +86,7 @@
 		gib() //Leave no identifiable evidence.
 		return
 
-/mob/living/simple_animal/hostile/vagrant/update_icon()
+/mob/living/simple_animal/hostile/vagrant/on_update_icon()
 	if(cloaked) //It's fun time
 		alpha = 45
 		set_light(0)
@@ -115,8 +117,7 @@
 			H.visible_message("<span class='danger'>\the [src] latches onto \the [H], pulsating!</span>")
 			if(carried && length(gripping.virus2) == 0)
 				infect_virus2(gripping, carried, 1)
-			src.loc = gripping.loc
-			return
+			src.forceMove(gripping.loc)
 
 /mob/living/simple_animal/hostile/vagrant/swarm/Initialize()
 	. = ..()

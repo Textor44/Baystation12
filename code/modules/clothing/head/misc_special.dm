@@ -167,9 +167,9 @@
 		icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
 
-/obj/item/clothing/head/ushanka/tcc
-	name = "TCC ushanka"
-	desc = "Perfect for keeping ears warm during your courtmartial."
+/obj/item/clothing/head/ushanka/gcc
+	name = "GCC ushanka"
+	desc = "Perfect for keeping ears warm during your court-martial."
 	icon_state = "tccushankadown"
 	icon_state_up = "tccushankaup"
 
@@ -199,10 +199,10 @@
 
 	update_icon(var/mob/living/carbon/human/user)
 		if(!istype(user)) return
-		var/icon/ears = new/icon("icon" = 'icons/mob/onmob/head.dmi', "icon_state" = "kitty")
+		var/icon/ears = new/icon("icon" = 'icons/mob/onmob/onmob_head.dmi', "icon_state" = "kitty")
 		ears.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
 
-		var/icon/earbit = new/icon("icon" = 'icons/mob/onmob/head.dmi', "icon_state" = "kittyinner")
+		var/icon/earbit = new/icon("icon" = 'icons/mob/onmob/onmob_head.dmi', "icon_state" = "kittyinner")
 		ears.Blend(earbit, ICON_OVERLAY)
 
 /obj/item/clothing/head/richard

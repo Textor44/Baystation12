@@ -27,7 +27,6 @@
 	clickvol = 40
 
 	// Power
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 150
 
@@ -60,7 +59,7 @@
 		state = 8
 	else
 		state = 5
-	use_power = 2
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 	addtimer(CALLBACK(src, /obj/machinery/washing_machine/proc/wash), 20 SECONDS, TIMER_UNIQUE)
 
@@ -84,12 +83,12 @@
 	QDEL_NULL(detergent)
 
 	//Tanning!
-	for(var/obj/item/stack/material/hairlesshide/HH in contents)
-		var/obj/item/stack/material/wetleather/WL = new(src)
+	for(var/obj/item/stack/hairlesshide/HH in contents)
+		var/obj/item/stack/wetleather/WL = new(src)
 		WL.amount = HH.amount
 		qdel(HH)
 
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 	if( locate(/mob,contents) )
 		state = 7
 		gibs_ready = 1
@@ -104,10 +103,9 @@
 
 	sleep(20)
 	if(state in list(1,3,6) )
-		usr.loc = src.loc
+		usr.dropInto(loc)
 
-
-/obj/machinery/washing_machine/update_icon()
+/obj/machinery/washing_machine/on_update_icon()
 	icon_state = "wm_[state][panel]"
 
 /obj/machinery/washing_machine/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -137,19 +135,18 @@
 			return
 		else
 			wrench_floor_bolts(user)
-			use_power = anchored
-			power_change()
+			update_use_power(anchored)
 			return
 	else if(istype(W,/obj/item/grab))
 		if((state == 1) && hacked)
 			var/obj/item/grab/G = W
 			if(ishuman(G.assailant) && iscorgi(G.affecting))
-				G.affecting.loc = src
+				G.affecting.forceMove(src)
 				qdel(G)
 				state = 3
 		else
 			..()
-	else if(istype(W,/obj/item/stack/material/hairlesshide) || \
+	else if(istype(W,/obj/item/stack/hairlesshide) || \
 		istype(W,/obj/item/clothing/under)  || \
 		istype(W,/obj/item/clothing/mask)   || \
 		istype(W,/obj/item/clothing/head)   || \
@@ -219,7 +216,7 @@
 		if(4)
 			state = 3
 			for(var/atom/movable/O in contents)
-				O.forceMove(get_turf(src))
+				O.dropInto(loc)
 			crayon = null
 			detergent = null
 			state = 1

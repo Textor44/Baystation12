@@ -23,16 +23,15 @@
 	..()
 	verbs += /mob/proc/toggle_antag_pool
 
-/mob/new_player/verb/new_player_panel()
-	set src = usr
-	new_player_panel_proc()
-
-/mob/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'>"
+/mob/new_player/proc/new_player_panel(force = FALSE)
+	if(!SScharacter_setup.initialized && !force)
+		return // Not ready yet.
+	var/output = list()
+	output += "<div align='center'>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
-	if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
+	if(GAME_STATE <= RUNLEVEL_LOBBY)
 		if(ready)
 			output += "<p>\[ <span class='linkOn'><b>Ready</b></span> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
 		else
@@ -66,23 +65,22 @@
 
 	panel = new(src, "Welcome","Welcome", 210, 280, src)
 	panel.set_window_options("can_close=0")
-	panel.set_content(output)
+	panel.set_content(JOINTEXT(output))
 	panel.open()
-	return
 
 /mob/new_player/Stat()
 	. = ..()
 
-	if(statpanel("Lobby") && ticker)
+	if(statpanel("Lobby"))
 		if(check_rights(R_INVESTIGATE, 0, src))
-			stat("Game Mode:", "[ticker.mode || master_mode][ticker.hide_mode ? " (Secret)" : ""]")
+			stat("Game Mode:", "[SSticker.mode ? SSticker.mode.name : SSticker.master_mode] ([SSticker.master_mode])")
 		else
 			stat("Game Mode:", PUBLIC_GAME_MODE)
 		var/extra_antags = list2params(additional_antag_types)
 		stat("Added Antagonists:", extra_antags ? extra_antags : "None")
 
-		if(ticker.current_state == GAME_STATE_PREGAME)
-			stat("Time To Start:", "[ticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+		if(GAME_STATE <= RUNLEVEL_LOBBY)
+			stat("Time To Start:", "[round(SSticker.pregame_timeleft/10)][SSticker.round_progressing ? "" : " (DELAYED)"]")
 			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 			totalPlayers = 0
 			totalPlayersReady = 0
@@ -102,17 +100,17 @@
 		return 1
 
 	if(href_list["ready"])
-		if(!ticker || ticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
+		if(GAME_STATE <= RUNLEVEL_LOBBY) // Make sure we don't ready up after the round has started
 			ready = text2num(href_list["ready"])
 		else
 			ready = 0
 
 	if(href_list["refresh"])
 		panel.close()
-		new_player_panel_proc()
+		new_player_panel()
 
 	if(href_list["observe"])
-		if(!(initialization_stage&INITIALIZATION_COMPLETE))
+		if(GAME_STATE < RUNLEVEL_LOBBY)
 			to_chat(src, "<span class='warning'>Please wait for server initialization to complete...</span>")
 			return
 
@@ -155,7 +153,7 @@
 
 	if(href_list["late_join"])
 
-		if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
+		if(GAME_STATE != RUNLEVEL_GAME)
 			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 			return
 		LateChoices() //show the latejoin job selection menu
@@ -164,9 +162,9 @@
 		ViewManifest()
 
 	if(href_list["SelectedJob"])
-		var/datum/job/job = job_master.GetJob(href_list["SelectedJob"])
+		var/datum/job/job = SSjobs.get_by_title(href_list["SelectedJob"])
 
-		if(!job_master.CheckGeneralJoinBlockers(src, job))
+		if(!SSjobs.check_general_join_blockers(src, job))
 			return FALSE
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -279,19 +277,11 @@
 					if(!isnull(href_list["option_[optionid]"]))	//Test if this optionid was selected
 						vote_on_poll(pollid, optionid, 1)
 
-/mob/new_player/proc/get_branch_pref()
-	if(client)
-		return client.prefs.char_branch
-
-/mob/new_player/proc/get_rank_pref()
-	if(client)
-		return client.prefs.char_rank
-
 /mob/new_player/proc/AttemptLateSpawn(var/datum/job/job, var/spawning_at)
 
 	if(src != usr)
 		return 0
-	if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
+	if(GAME_STATE != RUNLEVEL_GAME)
 		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 		return 0
 	if(!config.enter_allowed)
@@ -304,13 +294,13 @@
 	if(job.is_restricted(client.prefs, src))
 		return
 
-	var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, job.title)
+	var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(client)
 	var/turf/spawn_turf = pick(spawnpoint.turfs)
 	if(job.latejoin_at_spawnpoints)
-		var/obj/S = job_master.get_roundstart_spawnpoint(job.title)
+		var/obj/S = job.get_roundstart_spawnpoint()
 		spawn_turf = get_turf(S)
 
-	if(!job_master.CheckUnsafeSpawn(src, spawn_turf))
+	if(!SSjobs.check_unsafe_spawn(src, spawn_turf))
 		return
 
 	// Just in case someone stole our position while we were waiting for input from alert() proc
@@ -318,13 +308,13 @@
 		to_chat(src, alert("[job.title] is not available. Please try another."))
 		return 0
 
-	job_master.AssignRole(src, job.title, 1)
+	SSjobs.assign_role(src, job.title, 1)
 
 	var/mob/living/character = create_character(spawn_turf)	//creates the human and transfers vars and mind
 	if(!character)
 		return 0
 
-	character = job_master.EquipRank(character, job.title, 1)					//equips the human
+	character = SSjobs.equip_rank(character, job.title, 1)					//equips the human
 	equip_custom_items(character)
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
@@ -341,18 +331,18 @@
 		A.on_mob_init()
 
 		AnnounceCyborg(character, job.title, "has been downloaded to the empty core in \the [character.loc.loc]")
-		ticker.mode.handle_latejoin(character)
+		SSticker.mode.handle_latejoin(character)
 
 		qdel(C)
 		qdel(src)
 		return
 
-	ticker.mode.handle_latejoin(character)
+	SSticker.mode.handle_latejoin(character)
 	GLOB.universe.OnPlayerLatejoin(character)
-	if(job_master.ShouldCreateRecords(job.title))
+	if(job.create_record)
 		if(character.mind.assigned_role != "Robot")
 			CreateModularRecord(character)
-			ticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
+			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 			AnnounceArrival(character, job, spawnpoint.msg)
 		else
 			AnnounceCyborg(character, job, spawnpoint.msg)
@@ -366,7 +356,7 @@
 
 
 /mob/new_player/proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
-	if (ticker.current_state == GAME_STATE_PLAYING)
+	if (GAME_STATE == RUNLEVEL_GAME)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
@@ -396,7 +386,7 @@
 	// TORCH JOBS
 	var/list/job_summaries
 	var/list/hidden_reasons = list()
-	for(var/datum/job/job in job_master.occupations)
+	for(var/datum/job/job in SSjobs.primary_job_datums)
 		var/summary = job.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[job.title]", show_invalid_jobs)
 		if(summary && summary != "")
 			LAZYADD(job_summaries, summary)
@@ -452,7 +442,10 @@
 		chosen_species = all_species[client.prefs.species]
 
 	if(!spawn_turf)
-		var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, get_rank_pref())
+		var/datum/job/job = SSjobs.get_by_title(mind.assigned_role)
+		if(!job)
+			job = SSjobs.get_by_title(GLOB.using_map.default_assistant_title)
+		var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(client, client.prefs.ranks[job.title])
 		spawn_turf = pick(spawnpoint.turfs)
 
 	if(chosen_species)
@@ -469,7 +462,7 @@
 
 	new_character.lastarea = get_area(spawn_turf)
 
-	if(ticker.random_players)
+	if(GLOB.random_players)
 		new_character.gender = pick(MALE, FEMALE)
 		client.prefs.real_name = random_name(new_character.gender)
 		client.prefs.randomize_appearance_and_body_for(new_character)

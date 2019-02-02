@@ -32,7 +32,7 @@
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>Uh ... how do those things work?!</span>")
 		place_handcuffs(user, user)
 		return
@@ -93,7 +93,7 @@
 		return 0
 
 	admin_attack_log(user, H, "Attempted to handcuff the victim", "Was target of an attempted handcuff", "attempted to handcuff")
-	feedback_add_details("handcuffs","H")
+	SSstatistics.add_field_details("handcuffs","H")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(H)
@@ -161,8 +161,8 @@ var/last_chew = 0
 
 /obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+	if(istype(I, /obj/item/stack/material/rods))
+		var/obj/item/stack/material/rods/R = I
 		if (R.use(1))
 			var/obj/item/weapon/material/wirerod/W = new(get_turf(user))
 			user.put_in_hands(W)

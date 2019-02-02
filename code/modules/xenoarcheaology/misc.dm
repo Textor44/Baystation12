@@ -14,19 +14,14 @@
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "Xenoarchaeologist Locker"
 	req_access = list(access_xenoarch)
-	icon_state = "secureres1"
-	icon_closed = "secureres"
-	icon_locked = "secureres1"
-	icon_opened = "secureresopen"
-	icon_broken = "secureresbroken"
-	icon_off = "secureresoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/expedition/science
 
 /obj/structure/closet/secure_closet/xenoarchaeologist/New()
 	..()
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/toxins(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel_tox(src)
+		new /obj/item/weapon/storage/backpack/satchel/tox(src)
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/dufflebag(src)
 	new /obj/item/clothing/under/rank/scientist(src)
@@ -41,10 +36,8 @@
 	new /obj/item/taperoll/research(src)
 
 /obj/structure/closet/excavation
-	name = "Excavation tools"
-	icon_state = "toolcloset"
-	icon_closed = "toolcloset"
-	icon_opened = "toolclosetopen"
+	name = "excavation tools"
+	closet_appearance = /decl/closet_appearance/secure_closet/engineering/tools
 
 /obj/structure/closet/excavation/New()
 	..()

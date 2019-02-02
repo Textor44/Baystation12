@@ -121,7 +121,6 @@
 		to_chat(remover, "<span class='warning'>\The [src] does not have a sample in it.</span>")
 		return
 	to_chat(remover, "<span class='notice'>You remove \the [sample] from \the [src].</span>")
-	sample.forceMove(get_turf(src))
 	remover.put_in_hands(sample)
 	sample = null
 	update_icon()
@@ -135,7 +134,7 @@
 	else
 		return ..()
 
-/obj/machinery/microscope/update_icon()
+/obj/machinery/microscope/on_update_icon()
 	icon_state = "microscope"
 	if(sample)
 		icon_state += "slide"

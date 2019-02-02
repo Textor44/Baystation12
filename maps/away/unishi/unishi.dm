@@ -6,21 +6,19 @@
 	archetype = /decl/submap_archetype/derelict/unishi
 
 /decl/submap_archetype/derelict/unishi
-	descriptor = "derelict"
+	descriptor = "derelict research vessel"
 	map = "SRV Verne"
 	crew_jobs = list(
 		/datum/job/submap/unishi_crew,
 		/datum/job/submap/unishi_researcher
 	)
-	whitelisted_species = list(SPECIES_HUMAN)
 
 /obj/effect/overmap/ship/unishi
 	name = "SRV Verne"
 	desc = "Sensor array detects unknown class medium size vessel. The vessel appears unarmed.\
 	A small amount of radiation has been detected at the aft of the ship"
-	vessel_mass = 80
-	default_delay = 15 SECONDS
-	speed_mod = 10 SECONDS
+	vessel_mass = 5000
+	max_speed = 1/(3 SECONDS)
 	initial_generic_waypoints = list(
 		"nav_unishi_1",
 		"nav_unishi_2",

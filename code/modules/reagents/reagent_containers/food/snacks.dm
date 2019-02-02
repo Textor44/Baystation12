@@ -26,8 +26,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
 	if(!reagents.total_volume)
 		M.visible_message("<span class='notice'>[M] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
-
 		M.drop_item()
+		M.update_personal_goal(/datum/goal/achievement/specific_object/food, type)
 		if(trash)
 			if(ispath(trash,/obj/item))
 				var/obj/item/TrashItem = new trash(get_turf(M))
@@ -49,7 +49,7 @@
 	if(istype(M, /mob/living/carbon))
 		//TODO: replace with standard_feed_mob() call.
 		var/mob/living/carbon/C = M
-		var/fullness = C.nutrition + (C.reagents.get_reagent_amount(/datum/reagent/nutriment) * 10)
+		var/fullness = C.get_fullness()
 		if(C == user)								//If you're eating it yourself
 			if(istype(C,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
@@ -454,6 +454,25 @@
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 12)
 	reagents.add_reagent(/datum/reagent/hyperzine, 5)
 
+/obj/item/weapon/reagent_containers/food/snacks/spider
+	name = "giant spider leg"
+	desc = "An economical replacement for crab. In space! Would probably be a lot nicer cooked."
+	icon_state = "spiderleg"
+	filling_color = "#d5f5dc"
+	center_of_mass = "x=16;y=10"
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/spider/Initialize()
+	.=..()
+	name = "giant spider leg" //since most mobs use a generic meat type and append the name of the mob onto it ('parrot meat')
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 9)
+
+/obj/item/weapon/reagent_containers/food/snacks/spider/cooked
+	name = "boiled spider meat"
+	desc = "An economical replacement for crab. In space!"
+	icon_state = "spiderleg_c"
+	bitesize = 5
+
 /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 	name = "meat"
 	desc = "A slab of green meat. Smells like acid."
@@ -517,9 +536,10 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/heat(weakref/message_to)
 	..()
-	var/mob/user = message_to.resolve()
-	if(user)
-		to_chat(user, "You think \the [src] is ready to eat about now.")
+	if(message_to)
+		var/mob/user = message_to.resolve()
+		if(user)
+			to_chat(user, "You think \the [src] is ready to eat about now.")
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket
 	name = "\improper Donk-pocket"
@@ -922,7 +942,7 @@
 	name = "meat-kabob"
 	icon_state = "kabob"
 	desc = "Delicious meat, on a stick."
-	trash = /obj/item/stack/rods
+	trash = /obj/item/stack/material/rods
 	filling_color = "#a85340"
 	center_of_mass = "x=17;y=15"
 	bitesize = 2
@@ -934,7 +954,7 @@
 	name = "tofu-kabob"
 	icon_state = "kabob"
 	desc = "Vegan meat, on a stick."
-	trash = /obj/item/stack/rods
+	trash = /obj/item/stack/material/rods
 	filling_color = "#fffee0"
 	center_of_mass = "x=17;y=15"
 	nutriment_desc = list("tofu" = 3, "metal" = 1)
@@ -1317,10 +1337,12 @@
 	reagents.add_reagent(/datum/reagent/frostoil, 3)
 	reagents.add_reagent(/datum/reagent/drink/juice/tomato, 2)
 
+//cubed animals!
+
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube
 	name = "monkey cube"
 	desc = "Just add water!"
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER
 	icon_state = "monkeycube"
 	bitesize = 12
 	filling_color = "#adac7f"
@@ -1396,81 +1418,16 @@
 	name = "neaera cube"
 	monkey_type = /mob/living/carbon/human/neaera
 
-//More cubes!
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/catcube
-	name = "cat cube"
-	monkey_type = /mob/living/simple_animal/cat
+//Spider cubes, all that's left of the cube PR
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/catcube
-	name = "cat cube"
-	monkey_type = /mob/living/simple_animal/cat
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/spidercube
+	name = "spider cube"
+	monkey_type = /obj/effect/spider/spiderling
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/kcatcube
-	name = "kitten cube"
-	monkey_type = /mob/living/simple_animal/cat/kitten
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/kcatcube
-	name = "kitten cube"
-	monkey_type = /mob/living/simple_animal/cat/kitten
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/corgicube
-	name = "corgi cube"
-	monkey_type = /mob/living/simple_animal/corgi
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/corgicube
-	name = "corgi cube"
-	monkey_type = /mob/living/simple_animal/corgi
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/pcorgicube
-	name = "corgi puppy cube"
-	monkey_type = /mob/living/simple_animal/corgi/puppy
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/pcorgicube
-	name = "corgi puppy cube"
-	monkey_type = /mob/living/simple_animal/corgi/puppy
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cowcube
-	name = "cow cube"
-	monkey_type = /mob/living/simple_animal/cow
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/cowcube
-	name = "cow cube"
-	monkey_type = /mob/living/simple_animal/cow
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/goatcube
-	name = "goat cube"
-	monkey_type = /mob/living/simple_animal/hostile/retaliate/goat
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/goatcube
-	name = "goat cube"
-	monkey_type = /mob/living/simple_animal/hostile/retaliate/goat
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/chickencube
-	name = "chicken cube"
-	monkey_type = /mob/living/simple_animal/chicken
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/chickencube
-	name = "chicken cube"
-	monkey_type = /mob/living/simple_animal/chicken
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/chickcube
-	name = "chick cube"
-	monkey_type = /mob/living/simple_animal/chick
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/chickcube
-	name = "chick cube"
-	monkey_type = /mob/living/simple_animal/chick
-
-//Slime Cubes: Bit experimental: May need to tweak the reagent used to activate them to avoid double-tapping your specimen to death by accident.
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/slimecube
-	name = "slime cube (grey)"
-	monkey_type = /mob/living/carbon/slime
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/slimecube
-	name = "slime cube (grey)"
-	monkey_type = /mob/living/carbon/slime
+/obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/spidercube
+	name = "spider cube"
+	monkey_type = /obj/effect/spider/spiderling
 
 /obj/item/weapon/reagent_containers/food/snacks/spellburger
 	name = "spell burger"
@@ -1721,6 +1678,25 @@
 	filling_color = "#fffbdb"
 	center_of_mass = "x=17;y=11"
 	nutriment_desc = list("rice" = 2)
+	nutriment_amt = 6
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/boiledrice/chazuke
+	name = "chazuke"
+	desc = "An ancient way of using up day-old rice, this dish is composed of plain green tea poured over plain white rice. Hopefully you have something else to put in."
+	icon_state = "chazuke"
+	filling_color = "#f1ffdb"
+	nutriment_desc = list("chazuke" = 2)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/katsucurry
+	name = "katsu curry"
+	desc = "An oriental curry dish made from apples, potatoes, and carrots. Served with rice and breaded chicken."
+	icon_state = "katsu"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#faa005"
+	center_of_mass = "x=17;y=11"
+	nutriment_desc = list("rice" = 2, "apple" = 2, "potato" = 2, "carrot" = 2, "bread" = 2, )
 	nutriment_amt = 6
 	bitesize = 2
 
@@ -2525,6 +2501,7 @@
 	filling_color = "#f5deb8"
 	center_of_mass = "x=17;y=6"
 	nutriment_desc = list("salt" = 1, "cracker" = 2)
+	w_class = ITEM_SIZE_TINY
 	nutriment_amt = 1
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////
@@ -2653,9 +2630,9 @@
 	var/list/boxes = list()// If the boxes are stacked, they come here
 	var/boxtag = ""
 
-/obj/item/pizzabox/update_icon()
+/obj/item/pizzabox/on_update_icon()
 
-	overlays = list()
+	overlays.Cut()
 
 	// Set appropriate description
 	if( open && pizza )
@@ -3244,6 +3221,17 @@
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/iron, 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatcube
+	name = "cubed meat"
+	desc = "Fried, salted lean meat compressed into a cube. Not very appetizing."
+	icon_state = "meatcube"
+	filling_color = "#7a3d11"
+	center_of_mass = "x=16;y=16"
+	bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/meatcube/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 15)
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"

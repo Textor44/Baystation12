@@ -3,7 +3,7 @@
 	desc = "A small underfloor device specifically designed to disrupt energy barriers."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "fdiffuser_on"
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 100
 	active_power_usage = 2000
 	anchored = 1
@@ -34,7 +34,7 @@
 	if(default_part_replacement(user, O))
 		return
 
-/obj/machinery/shield_diffuser/update_icon()
+/obj/machinery/shield_diffuser/on_update_icon()
 	if(alarm)
 		icon_state = "fdiffuser_emergency"
 		return
@@ -50,7 +50,7 @@
 		update_icon()
 		return
 	enabled = !enabled
-	use_power = enabled + 1
+	update_use_power(enabled + 1)
 	update_icon()
 	to_chat(usr, "You turn \the [src] [enabled ? "on" : "off"].")
 

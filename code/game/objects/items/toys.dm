@@ -85,7 +85,7 @@
 				qdel(src)
 	return
 
-/obj/item/toy/water_balloon/update_icon()
+/obj/item/toy/water_balloon/on_update_icon()
 	if(src.reagents.total_volume >= 1)
 		icon_state = "waterballoon"
 		item_state = "balloon"
@@ -141,7 +141,7 @@
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/energy_crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	item_icons = list(
@@ -587,8 +587,8 @@
 	icon_state = "wizard"
 
 /obj/item/toy/figure/rd
-	name = "Research Director action figure"
-	desc = "A \"Space Life\" brand Research Director action figure."
+	name = "Chief Science Officer action figure"
+	desc = "A \"Space Life\" brand Chief Science Officer action figure."
 	icon_state = "rd"
 
 /obj/item/toy/figure/roboticist
@@ -785,7 +785,7 @@
 	desc = "No bother to sink or swim when you can just float!"
 	icon_state = "inflatable"
 	item_state = "inflatable"
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/clothing/obj_belt.dmi'
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/marshalling_wand
@@ -859,7 +859,7 @@
 	var/on = 0
 	var/activation_sound = 'sound/effects/flashlight.ogg'
 
-/obj/item/toy/desk/update_icon()
+/obj/item/toy/desk/on_update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 	else

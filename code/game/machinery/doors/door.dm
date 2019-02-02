@@ -94,12 +94,12 @@
 			close_door_at = 0
 
 /obj/machinery/door/proc/can_open()
-	if(!density || operating || !ticker)
+	if(!density || operating)
 		return 0
 	return 1
 
 /obj/machinery/door/proc/can_close()
-	if(density || operating || !ticker)
+	if(density || operating)
 		return 0
 	return 1
 
@@ -171,7 +171,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					new /obj/item/stack/rods(src.loc, 3)
+					new /obj/item/stack/material/rods(src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -233,7 +233,7 @@
 		else
 			repairing = stack.split(amount_needed, force=TRUE)
 			if (repairing)
-				repairing.loc = src
+				repairing.dropInto(loc)
 				transfer = repairing.amount
 				repairing.uses_charge = FALSE //for clean robot door repair - stacks hint immortal if true
 
@@ -262,7 +262,7 @@
 	if(repairing && isCrowbar(I))
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-		repairing.loc = user.loc
+		repairing.dropInto(user.loc)
 		repairing = null
 		return
 
@@ -310,7 +310,7 @@
 	var/initialhealth = src.health
 	src.health = max(0, src.health - damage)
 	if(src.health <= 0 && initialhealth > 0)
-		src.set_broken()
+		src.set_broken(TRUE)
 	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
 		visible_message("\The [src] looks like it's about to break!" )
 	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
@@ -333,11 +333,10 @@
 		to_chat(user, "\The [src] shows signs of damage!")
 
 
-/obj/machinery/door/proc/set_broken()
-	stat |= BROKEN
-	visible_message("<span class = 'warning'>\The [src.name] breaks!</span>")
-	update_icon()
-
+/obj/machinery/door/set_broken(new_state)
+	. = ..()
+	if(. && new_state)
+		visible_message("<span class = 'warning'>\The [src.name] breaks!</span>")
 
 /obj/machinery/door/ex_act(severity)
 	switch(severity)
@@ -359,7 +358,7 @@
 			take_damage(100)
 
 
-/obj/machinery/door/update_icon()
+/obj/machinery/door/on_update_icon()
 	if(connections in list(NORTH, SOUTH, NORTH|SOUTH))
 		if(connections in list(WEST, EAST, EAST|WEST))
 			set_dir(SOUTH)

@@ -28,7 +28,6 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	use_power = 1
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
 	var/obj/item/weapon/disk/botany/loaded_disk //Currently loaded data disk.
@@ -66,7 +65,7 @@
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
-			loaded_disk.loc = get_turf(src)
+			loaded_disk.dropInto(loc)
 			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
@@ -170,7 +169,7 @@
 
 	if(href_list["eject_packet"])
 		if(!seed) return
-		seed.loc = get_turf(src)
+		seed.dropInto(loc)
 
 		if(seed.seed.name == "new line" || isnull(SSplants.seeds[seed.seed.name]))
 			seed.seed.uid = SSplants.seeds.len + 1
@@ -184,7 +183,7 @@
 
 	if(href_list["eject_disk"])
 		if(!loaded_disk) return
-		loaded_disk.loc = get_turf(src)
+		loaded_disk.dropInto(loc)
 		visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
 

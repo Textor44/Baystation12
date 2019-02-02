@@ -1,19 +1,15 @@
-#define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
-#define CLEAR_CASINGS	1 //clear chambered so that the next round will be automatically loaded and fired, but don't drop anything on the floor
-#define EJECT_CASINGS	2 //drop spent casings on the ground after firing
-#define CYCLE_CASINGS	3 //cycle casings, like a revolver. Also works for multibarrelled guns
-
 /obj/item/weapon/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
-	icon_state = "revolver"
+	icon = 'icons/obj/guns/pistol.dmi'
+	icon_state = "secguncomp"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1000)
 	screen_shake = 1
 	combustion = 1
 
-	var/caliber = "357"		//determines which casings will fit
+	var/caliber = CALIBER_PISTOL		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
 	var/obj/item/ammo_casing/chambered = null
@@ -34,7 +30,6 @@
 	var/mag_insert_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
 	var/mag_remove_sound = 'sound/weapons/guns/interaction/pistol_magout.ogg'
 
-
 	var/is_jammed = 0           //Whether this gun is jammed
 	var/jam_chance = 0          //Chance it jams on fire
 	//TODO generalize ammo icon states for guns
@@ -42,8 +37,8 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 
-/obj/item/weapon/gun/projectile/New()
-	..()
+/obj/item/weapon/gun/projectile/Initialize()
+	. = ..()
 	if (starts_loaded)
 		if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 			for(var/i in 1 to max_shells)
@@ -107,7 +102,7 @@
 
 	switch(handle_casings)
 		if(EJECT_CASINGS) //eject casing onto ground.
-			chambered.forceMove(get_turf(src))
+			chambered.dropInto(loc)
 			if(LAZYLEN(chambered.fall_sounds))
 				playsound(loc, pick(chambered.fall_sounds), 50, 1)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
@@ -151,7 +146,7 @@
 					if(loaded.len >= max_shells)
 						break
 					if(C.caliber == caliber)
-						C.loc = src
+						C.forceMove(src)
 						loaded += C
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
@@ -195,7 +190,7 @@
 			var/turf/T = get_turf(user)
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
-					C.loc = T
+					C.forceMove(T)
 					count++
 				loaded.Cut()
 			if(count)
@@ -227,7 +222,7 @@
 /obj/item/weapon/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
-		ammo_magazine.loc = get_turf(src.loc)
+		ammo_magazine.dropInto(loc)
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"

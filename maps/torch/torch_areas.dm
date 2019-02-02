@@ -43,9 +43,6 @@
 /area/maintenance/substation/fifthdeck
 	name = "Fifth Deck Substation"
 
-/area/crew_quarters/safe_room/fifthdeck
-	name = "\improper Fifth Deck Safe Room"
-
 //Fourth Deck (Z-1)
 /area/hallway/primary/fourthdeck/fore
 	name = "\improper Fourth Deck Fore Hallway"
@@ -89,6 +86,9 @@
 
 /area/maintenance/substation/fourthdeck
 	name = "Fourth Deck Substation"
+
+/area/crew_quarters/safe_room/fourthdeck
+	name = "\improper Fourth Deck Safe Room"
 
 //Third Deck (Z-2)
 /area/hallway/primary/thirddeck/fore
@@ -506,6 +506,16 @@
 	base_turf = /turf/simulated/floor/plating
 */
 
+/area/turbolift/cargo_lift
+	name = "\improper Cargo Lift"
+	icon_state = "shuttle3"
+	base_turf = /turf/simulated/open
+
+/area/turbolift/robotics_lift
+  name = "\improper Robotics Lift"
+  icon_state = "shuttle3"
+  base_turf = /turf/simulated/open
+
 // Ninja areas
 /area/ninja_dojo
 	name = "\improper Ninja Base"
@@ -639,6 +649,10 @@
 	name = "\improper Emergency Armory - Tactical"
 	icon_state = "Tactical"
 
+/area/command/bsa
+	name = "\improper Bluespace Artillery"
+	icon_state = "firingrange"
+
 /area/crew_quarters/heads
 	icon_state = "head_quarters"
 
@@ -736,10 +750,6 @@
 	name = "\improper Requisitions Office"
 	icon_state = "quart"
 
-/area/vacant/missile
-	name = "\improper Third Deck Port Missile Pod"
-	icon_state = "firingrange"
-
 /area/vacant/brig
 	name = "\improper Permanent Brig"
 	icon_state = "brig"
@@ -818,10 +828,6 @@
 /area/quartermaster/flightcontrol
 	name = "\improper Flight Control Tower"
 	icon_state = "hangar"
-
-/area/quartermaster/unused
-	name = "\improper Ready Room"
-	icon_state = "auxstorage"
 
 // Research
 /area/rnd/canister
@@ -911,6 +917,10 @@
 	name = "\improper Diplomatic Quarters"
 	icon_state = "Sleep"
 	sound_env = SMALL_SOFTFLOOR
+
+/area/crew_quarters/adherent
+	name = "\improper Adherent Maintenence"
+	icon_state = "robotics"
 
 /area/holocontrol
 	name = "\improper Holodeck Control"
@@ -1002,6 +1012,11 @@
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
+/area/medical/washroom
+	name = "\improper Infirmary Washroom"
+	icon_state = "toilet"
+	sound_env = SMALL_ENCLOSED
+
 // Chapel
 /area/chapel/crematorium
 	name = "\improper Crematorium"
@@ -1074,6 +1089,10 @@
 
 /area/engineering/fuelbay
 	name = "\improper Fuel Bay"
+	icon_state = "engineering"
+
+/area/engineering/wastetank
+	name = "\improper Waste Tank"
 	icon_state = "engineering"
 
 // Command
@@ -1258,6 +1277,14 @@
 	name = "\improper Holodeck - Volleyball"
 	sound_env = PLAIN
 
+/area/holodeck/source_temple
+	name = "\improper Holodeck - Temple"
+	sound_env = SMALL_ENCLOSED
+
+/area/holodeck/source_plaza
+	name = "\improper Holodeck - Plaza"
+	sound_env = SMALL_ENCLOSED
+
 // Engineering
 
 /area/engineering/atmos/storage
@@ -1345,12 +1372,14 @@
 	icon_state = "mechbay"
 
 /area/assembly/robotics
-	name = "\improper Robotics Lab"
+	name = "\improper Fabrication Lab"
 	icon_state = "robotics"
 
-/area/assembly/robotics_surgery
+/area/assembly/robotics/lower
+	name = "\improper Lower Fabrication Lab"
+
+/area/assembly/robotics/surgery
 	name = "\improper Robotics Operating Theatre"
-	icon_state = "robotics"
 
 /area/rnd/misc_lab
 	name = "\improper Miscellaneous Research"

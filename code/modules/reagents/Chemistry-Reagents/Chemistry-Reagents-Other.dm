@@ -111,27 +111,7 @@
 	affect_blood(M, alien, removed)
 
 /datum/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.setCloneLoss(0)
-	M.setOxyLoss(0)
-	M.radiation = 0
-	M.heal_organ_damage(5,5)
-	M.adjustToxLoss(-5)
-	M.hallucination_power = 0
-	M.setBrainLoss(0)
-	M.disabilities = 0
-	M.sdisabilities = 0
-	M.eye_blurry = 0
-	M.eye_blind = 0
-	M.SetWeakened(0)
-	M.SetStunned(0)
-	M.SetParalysis(0)
-	M.silent = 0
-	M.dizziness = 0
-	M.drowsyness = 0
-	M.stuttering = 0
-	M.confused = 0
-	M.sleeping = 0
-	M.jitteriness = 0
+	M.rejuvenate()
 
 /datum/reagent/gold
 	name = "Gold"
@@ -342,20 +322,6 @@
 /datum/reagent/lube/oil/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
 		new /obj/effect/decal/cleanable/blood/oil/streak(T)
-
-/datum/reagent/silicate
-	name = "Silicate"
-	description = "A compound that can be used to reinforce glass."
-	taste_description = "plastic"
-	reagent_state = LIQUID
-	color = "#c7ffff"
-
-/datum/reagent/silicate/touch_obj(var/obj/O)
-	if(istype(O, /obj/structure/window))
-		var/obj/structure/window/W = O
-		W.apply_silicate(volume)
-		remove_self(volume)
-	return
 
 /datum/reagent/glycerol
 	name = "Glycerol"

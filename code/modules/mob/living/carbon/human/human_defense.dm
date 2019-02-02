@@ -31,7 +31,7 @@ meteor_act
 		var/obj/item/weapon/material/shard/shrapnel/SP = new()
 		SP.SetName((P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel")
 		SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
-		SP.loc = organ
+		SP.forceMove(organ)
 		organ.embed(SP)
 
 	var/blocked = ..(P, def_zone)
@@ -367,7 +367,7 @@ meteor_act
 		if(dtype == BRUTE && istype(O,/obj/item))
 			var/obj/item/I = O
 			if (!is_robot_module(I))
-				var/sharp = is_sharp(I)
+				var/sharp = I.can_embed()
 				var/damage = throw_damage //the effective damage used for embedding purposes, no actual damage is dealt here
 				if (armor)
 					damage *= blocked_mult(armor)
@@ -400,7 +400,7 @@ meteor_act
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					src.forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O

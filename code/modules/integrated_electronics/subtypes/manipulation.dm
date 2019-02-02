@@ -61,7 +61,7 @@
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
-		installed_gun.forceMove(get_turf(src))
+		installed_gun.dropInto(loc)
 		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
 		size = initial(size)
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
@@ -219,7 +219,7 @@
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	attached_grenade.forceMove(get_turf(src))
+	attached_grenade.dropInto(loc)
 	attached_grenade = null
 	desc = initial(desc)
 
@@ -263,7 +263,7 @@
 				for(var/i in 1 to length(harvest_output))
 					harvest_output[i] = weakref(harvest_output[i])
 
-				if(harvest_output.len)
+				if(length(harvest_output))
 					set_pin_data(IC_OUTPUT, 1, harvest_output)
 					push_data()
 			if(1)
@@ -319,9 +319,11 @@
 	var/list/seed_output = list()
 	for(var/i in 1 to rand(1,4))
 		var/obj/item/seeds/seeds = new(get_turf(O))
+		seeds.seed = SSplants.seeds[O.plantname]
 		seeds.seed_type = SSplants.seeds[O.seed.name]
 		seeds.update_seed()
 		seed_output += weakref(seeds)
+	qdel(O)
 
 	if(seed_output.len)
 		set_pin_data(IC_OUTPUT, 1, seed_output)
@@ -530,7 +532,7 @@
 
 	assembly.visible_message("<span class='danger'>[assembly] has thrown [A]!</span>")
 	log_attack("[assembly] \ref[assembly] has thrown [A].")
-	A.forceMove(get_turf(src))
+	A.dropInto(loc)
 	A.throw_at(locate(x_abs, y_abs, T.z), range, 3)
 
 	// If the item came from a grabber now we can update the outputs since we've thrown it.

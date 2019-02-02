@@ -17,6 +17,8 @@
 		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/snow     = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/shrouded = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/chlorine = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ship/scrap/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ship/scrap/command/hallway = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT,
@@ -25,5 +27,6 @@
 		/area/ship/scrap/maintenance/atmos = NO_SCRUBBER,
 		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/hydrobase/station = NO_SCRUBBER,
-		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/datacapsule = NO_SCRUBBER|NO_VENT|NO_APC
 	)

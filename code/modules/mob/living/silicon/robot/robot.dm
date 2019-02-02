@@ -169,7 +169,7 @@
 	if(ispath(module))
 		new module(src)
 	if(lawupdate)
-		var/new_ai = select_active_ai_with_fewest_borgs()
+		var/new_ai = select_active_ai_with_fewest_borgs((get_turf(src))?.z)
 		if(new_ai)
 			lawupdate = 1
 			connect_to_ai(new_ai)
@@ -290,7 +290,7 @@
 	new module_type(src)
 
 	hands.icon_state = lowertext(modtype)
-	feedback_inc("cyborg_[lowertext(modtype)]",1)
+	SSstatistics.add_field("cyborg_[lowertext(modtype)]",1)
 	updatename()
 	recalculate_synth_capacities()
 	if(module)
@@ -496,7 +496,7 @@
 				C.installed = 1
 				C.wrapped = W
 				C.install()
-				W.loc = null
+				W.forceMove(null)
 
 				var/obj/item/robot_parts/robot_component/WC = W
 				if(istype(WC))
@@ -584,7 +584,7 @@
 					I.brute = C.brute_damage
 					I.burn = C.electronics_damage
 
-				I.loc = src.loc
+				I.forceMove(loc)
 
 				if(C.installed == 1)
 					C.uninstall()
@@ -606,7 +606,7 @@
 			return
 		if(storage)
 			to_chat(user, "You replace \the [storage] with \the [W]")
-			storage.forceMove(get_turf(src))
+			storage.dropInto(loc)
 			storage = null
 		else
 			to_chat(user, "You install \the [W]")
@@ -757,7 +757,7 @@
 			return 1
 	return 0
 
-/mob/living/silicon/robot/update_icon()
+/mob/living/silicon/robot/on_update_icon()
 	overlays.Cut()
 	if(stat == CONSCIOUS)
 		var/eye_icon_state = "eyes-[module_sprites[icontype]]"

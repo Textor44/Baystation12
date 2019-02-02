@@ -6,7 +6,7 @@
 	w_class = ITEM_SIZE_SMALL
 	anchored = 0
 
-	matter = list(MATERIAL_STEEL = 700,MATERIAL_GLASS = 300)
+	matter = list(MATERIAL_ALUMINIUM = 700, MATERIAL_GLASS = 300)
 
 	//	Motion, EMP-Proof, X-Ray
 	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/weapon/stock_parts/scanning_module)
@@ -142,7 +142,7 @@
 
 	..()
 
-/obj/item/weapon/camera_assembly/update_icon()
+/obj/item/weapon/camera_assembly/on_update_icon()
 	if(anchored)
 		icon_state = "camera1"
 	else

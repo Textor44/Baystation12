@@ -63,8 +63,7 @@ for reference:
 	density = 1
 	var/health = 100
 	var/maxhealth = 100
-	var/material/material
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/barricade/New(var/newloc, var/material_name)
@@ -239,7 +238,7 @@ for reference:
 
 		visible_message("<span class='danger'>[src] blows apart!</span>")
 		var/turf/Tsec = get_turf(src)
-		new /obj/item/stack/rods(Tsec)
+		new /obj/item/stack/material/rods(Tsec)
 
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(3, 1, src)

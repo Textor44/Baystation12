@@ -12,7 +12,7 @@
 	w_class = ITEM_SIZE_TINY
 	var/obj/item/weapon/reagent_containers/syringe/syringe
 
-/obj/item/weapon/syringe_cartridge/update_icon()
+/obj/item/weapon/syringe_cartridge/on_update_icon()
 	underlays.Cut()
 	if(syringe)
 		underlays += image(syringe.icon, src, syringe.icon_state)
@@ -62,6 +62,7 @@
 /obj/item/weapon/gun/launcher/syringe
 	name = "syringe gun"
 	desc = "A spring loaded rifle designed to fit syringes, designed to incapacitate unruly patients from a distance."
+	icon = 'icons/obj/guns/syringegun.dmi'
 	icon_state = "syringegun"
 	item_state = "syringegun"
 	w_class = ITEM_SIZE_LARGE

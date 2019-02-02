@@ -17,7 +17,6 @@
 	var/heat_capacity = 1
 
 	//Properties for both
-	var/temperature = T20C      // Initial turf temperature.
 	var/blocks_air = 0          // Does this turf contain air/let air through?
 
 	// General properties.
@@ -36,17 +35,12 @@
 
 /turf/New()
 	..()
-	for(var/atom/movable/AM as mob|obj in src)
-		spawn( 0 )
-			src.Entered(AM)
-			return
-
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-/turf/update_icon()
+/turf/on_update_icon()
 	update_flood_overlay()
 
 /turf/proc/update_flood_overlay()
@@ -136,9 +130,11 @@ turf/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	return 1 //Nothing found to block so return success!
 
 var/const/enterloopsanity = 100
-/turf/Entered(atom/atom as mob|obj)
+/turf/Entered(var/atom/atom, var/atom/old_loc)
 
 	..()
+
+	QUEUE_TEMPERATURE_ATOMS(atom)
 
 	if(!istype(atom, /atom/movable))
 		return
@@ -306,6 +302,7 @@ var/const/enterloopsanity = 100
 	var/obj/effect/decal/writing/graffiti = new(src)
 	graffiti.message = message
 	graffiti.author = vandal.ckey
+	vandal.update_personal_goal(/datum/goal/achievement/graffiti, TRUE)
 
 	if(lowertext(message) == "elbereth")
 		to_chat(vandal, "<span class='notice'>You feel much safer.</span>")

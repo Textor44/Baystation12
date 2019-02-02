@@ -29,12 +29,7 @@
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E || E.is_stump())
-				tally += 4
-			else if(E.splinted)
-				tally += 0.5
-			else if(E.status & ORGAN_BROKEN)
-				tally += 1.5
+			tally += E ? E.movement_delay(4) : 4
 	else
 		var/total_item_slowdown = -1
 		for(var/slot = slot_first to slot_last)
@@ -56,12 +51,7 @@
 
 		for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E || E.is_stump())
-				tally += 4
-			else if(E.splinted)
-				tally += 0.5
-			else if(E.status & ORGAN_BROKEN)
-				tally += 1.5
+			tally += E ? E.movement_delay(4) : 4
 
 	if(shock_stage >= 10) tally += 3
 
@@ -69,7 +59,7 @@
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if(FAT in src.mutations)
+	if(MUTATION_FAT in src.mutations)
 		tally += 1.5
 	if (bodytemperature < 283.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75
@@ -142,6 +132,7 @@
 	. = ..()
 	if(.) //We moved
 		handle_exertion()
+		handle_leg_damage()
 
 /mob/living/carbon/human/proc/handle_exertion()
 	if(isSynthetic())
@@ -154,3 +145,18 @@
 				visible_message("<span class='notice'>\The [src] is sweating heavily!</span>", "<span class='notice'>You are sweating heavily!</span>")
 			if(2)
 				visible_message("<span class='notice'>\The [src] looks out of breath!</span>", "<span class='notice'>You are out of breath!</span>")
+
+/mob/living/carbon/human/proc/handle_leg_damage()
+	if(!can_feel_pain())
+		return
+	var/crutches = 0
+	for(var/obj/item/weapon/cane/C in list(l_hand, r_hand))
+		if(istype(C))
+			crutches++
+	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = get_organ(organ_name)
+		if(E && (E.is_dislocated() || E.is_broken()))
+			if(crutches)
+				crutches--
+			else
+				E.add_pain(10)

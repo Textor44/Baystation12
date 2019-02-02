@@ -1,7 +1,7 @@
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/medical_kits.dmi'
 	amount = 5
 	max_amount = 5
 	w_class = ITEM_SIZE_SMALL
@@ -109,6 +109,7 @@
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 			use(used)
+			H.update_bandages(1)
 
 /obj/item/stack/medical/ointment
 	name = "ointment"
@@ -199,6 +200,7 @@
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 			use(used)
+			H.update_bandages(1)
 
 /obj/item/stack/medical/advanced/ointment
 	name = "advanced burn kit"

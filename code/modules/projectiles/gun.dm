@@ -31,12 +31,11 @@
 /obj/item/weapon/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/gui.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_guns.dmi',
 		slot_r_hand_str = 'icons/mob/onmob/items/righthand_guns.dmi',
 		)
-	icon_state = "detective"
 	item_state = "gun"
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -62,6 +61,7 @@
 	var/silenced = 0
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/scoped_accuracy = null
+	var/scope_zoom = 0
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/one_hand_penalty
@@ -83,23 +83,27 @@
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 	var/tmp/last_safety_check = -INFINITY
-	var/safety_state = 0
+	var/safety_state = 1
 	var/has_safety = TRUE
+	var/safety_icon 	   //overlay to apply to gun based on safety state, if any
 
-/obj/item/weapon/gun/New()
-	..()
+/obj/item/weapon/gun/Initialize()
+	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
+	
+	if(scope_zoom)
+		verbs += /obj/item/weapon/gun/proc/scope
 
 /obj/item/weapon/gun/update_twohanding()
 	if(one_hand_penalty)
 		update_icon() // In case item_state is set somewhere else.
 	..()
 
-/obj/item/weapon/gun/update_icon()
+/obj/item/weapon/gun/on_update_icon()
 	var/mob/living/M = loc
 	overlays.Cut()
 	if(istype(M))
@@ -111,7 +115,9 @@
 				item_state_slots[slot_l_hand_str] = initial(item_state)
 				item_state_slots[slot_r_hand_str] = initial(item_state)
 		if(M.skill_check(SKILL_WEAPONS,SKILL_BASIC))
-			overlays += image(icon,"safety[safety()]")
+			overlays += image('icons/obj/guns/gui.dmi',"safety[safety()]")
+	if(safety_icon)
+		overlays += image(icon,"[safety_icon][safety()]")
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -128,10 +134,10 @@
 		if(prob(30))
 			toggle_safety()
 			return 1
-	if(HULK in M.mutations)
+	if(MUTATION_HULK in M.mutations)
 		to_chat(M, "<span class='danger'>Your fingers are much too large for the trigger guard!</span>")
 		return 0
-	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
+	if((MUTATION_CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
@@ -335,7 +341,7 @@
 	var/disp_mod = dispersion[min(burst, dispersion.len)]
 	var/stood_still = round((world.time - user.l_move_time)/15)
 	if(stood_still)
-		acc_mod += 1 * max(2, stood_still)
+		acc_mod += min(2, stood_still)
 		if(stood_still > 5)
 			acc_mod += accuracy
 
@@ -440,6 +446,13 @@
 		mouthshoot = 0
 		return
 
+/obj/item/weapon/gun/proc/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	toggle_scope(usr, scope_zoom)
+
 /obj/item/weapon/gun/proc/toggle_scope(mob/user, var/zoom_amount=2.0)
 	//looking through a scope limits your periphereal vision
 	//still, increase the view size by a tiny amount so that sniping isn't too restricted to NSEW
@@ -528,3 +541,13 @@
 /obj/item/weapon/gun/attack_hand()
 	..()
 	update_icon()
+
+/obj/item/weapon/gun/on_disarm_attempt(mob/target, mob/attacker)
+	var/list/turfs = list()
+	for(var/turf/T in view())
+		turfs += T
+	if(turfs.len)
+		var/turf/shoot_to = pick(turfs)
+		target.visible_message("<span class='danger'>\The [src] goes off during the struggle!</span>")
+		afterattack(shoot_to,target)
+		return 1

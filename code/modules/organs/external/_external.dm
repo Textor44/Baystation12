@@ -108,6 +108,7 @@
 
 	if(parent && parent.children)
 		parent.children -= src
+		parent = null
 
 	if(children)
 		for(var/obj/item/organ/external/C in children)
@@ -153,13 +154,13 @@
 	var/burn_damage = 0
 	switch (severity)
 		if (1)
-			burn_damage = 15
+			burn_damage = 30
 		if (2)
-			burn_damage = 7
+			burn_damage = 15
 		if (3)
-			burn_damage = 3
+			burn_damage = 7.5
 
-	var/mult = BP_IS_ROBOTIC(src) + BP_IS_ASSISTED(src)
+	var/mult = 1 + !!(BP_IS_ASSISTED(src)) // This macro returns (large) bitflags.
 	burn_damage *= mult/species.burn_mod //ignore burn mod for EMP damage
 
 	var/power = 4 - severity //stupid reverse severity
@@ -167,7 +168,7 @@
 		if(I.obj_flags & OBJ_FLAG_CONDUCTIBLE)
 			burn_damage += I.w_class * rand(power, 3*power)
 
-	if(burn_damage)
+	if(owner && burn_damage)
 		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
 		take_external_damage(0, burn_damage, 0, used_weapon = "Hot metal")
 
@@ -184,7 +185,7 @@
 			removable_objects |= I
 	if(removable_objects.len)
 		var/obj/item/I = pick(removable_objects)
-		I.loc = get_turf(user) //just in case something was embedded that is not an item
+		I.forceMove(get_turf(user)) //just in case something was embedded that is not an item
 		if(istype(I))
 			if(!(user.l_hand && user.r_hand))
 				user.put_in_hands(I)
@@ -416,7 +417,7 @@ This function completely restores a damaged organ to perfect condition.
 	// remove embedded objects and drop them on the floor
 	for(var/obj/implanted_object in implants)
 		if(!istype(implanted_object,/obj/item/weapon/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
-			implanted_object.loc = get_turf(src)
+			implanted_object.forceMove(get_turf(src))
 			implants -= implanted_object
 
 	if(owner && !ignore_prosthetic_prefs)
@@ -880,7 +881,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
 			for(var/obj/item/I in src)
 				if(I.w_class > ITEM_SIZE_SMALL && !istype(I,/obj/item/organ))
-					I.loc = get_turf(src)
+					I.dropInto(loc)
 			qdel(src)
 		if(DROPLIMB_BLUNT)
 			var/obj/gore
@@ -904,7 +905,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
 			for(var/obj/item/I in src)
-				I.loc = get_turf(src)
+				I.dropInto(loc)
 				I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
 			qdel(src)
@@ -1156,7 +1157,7 @@ obj/item/organ/external/proc/remove_clamps()
 	if(ismob(W.loc))
 		var/mob/living/H = W.loc
 		H.drop_from_inventory(W)
-	W.loc = owner
+	W.forceMove(owner)
 
 /obj/item/organ/external/removed(var/mob/living/user, var/ignore_children = 0)
 
@@ -1492,6 +1493,17 @@ obj/item/organ/external/proc/remove_clamps()
 	W.damage += damage
 	W.time_inflicted = world.time
 
-
 /obj/item/organ/external/proc/has_genitals()
 	return !BP_IS_ROBOTIC(src) && species && species.sexybits_location == organ_tag
+
+// Added to the mob's move delay tally if this organ is being used to move with.
+obj/item/organ/external/proc/movement_delay(max_delay)
+	. = 0
+	if(is_stump())
+		. += max_delay
+	else if(splinted)
+		. += max_delay/8
+	else if(status & ORGAN_BROKEN)
+		. += max_delay * 3/8
+	else if(BP_IS_ROBOTIC(src))
+		. += max_delay * CLAMP01(damage/max_damage)

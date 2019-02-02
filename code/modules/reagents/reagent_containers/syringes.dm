@@ -9,11 +9,11 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "syringe_0"
+	item_state = "rg0"
 	icon_state = "rg"
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = null
+	possible_transfer_amounts = "1;2;5"
 	volume = 15
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
@@ -85,14 +85,14 @@
 
 	handleTarget(target, user)
 
-/obj/item/weapon/reagent_containers/syringe/update_icon()
+/obj/item/weapon/reagent_containers/syringe/on_update_icon()
 	overlays.Cut()
 
 	if(mode == SYRINGE_BROKEN)
 		icon_state = "broken"
 		return
 
-	var/rounded_vol = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15)
+	var/rounded_vol = Clamp(round((reagents.total_volume / volume * 15),5), 5, 15)
 	if (reagents.total_volume == 0)
 		rounded_vol = 0
 	if(ismob(loc))
@@ -142,9 +142,6 @@
 				to_chat(user, "<span class='warning'>You are unable to locate any blood.</span>")
 				if(istype(target, /mob/living/carbon/human))
 					CRASH("[T] \[[T.type]\] was missing their dna datum!")
-				return
-			if(NOCLONE in T.mutations) //target done been et, no more blood in him
-				to_chat(user, "<span class='warning'>You are unable to locate any blood.</span>")
 				return
 
 			var/injtime = time //Taking a blood sample through a hardsuit takes longer due to needing to find a port.
@@ -225,7 +222,8 @@
 		return
 
 	var/mob/living/L = locate() in bag
-	injectMob(L, user, bag)
+	if(L)
+		injectMob(L, user, bag)
 
 /obj/item/weapon/reagent_containers/syringe/proc/injectMob(var/mob/living/carbon/target, var/mob/living/carbon/user, var/atom/trackTarget)
 	if(!trackTarget)
@@ -406,6 +404,6 @@
 	name = "cryostasis syringe"
 	desc = "An advanced syringe that stops reagents inside from reacting. It can hold up to 20 units."
 	volume = 20
-	atom_flags = ATOM_FLAG_NO_REACT
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
 	icon_state = "cs"
 

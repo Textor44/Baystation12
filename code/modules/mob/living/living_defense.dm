@@ -155,7 +155,7 @@
 		return 0
 
 	//Hulk modifier
-	if(HULK in user.mutations)
+	if(MUTATION_HULK in user.mutations)
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -216,20 +216,20 @@
 
 			if(!O || !src) return
 
-			if(O.sharp) //Projectile is suitable for pinning.
+			if(O.can_embed()) //Projectile is suitable for pinning.
 				//Handles embedding for non-humans and simple_animals.
 				embed(O)
 
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
 
 /mob/living/proc/embed(var/obj/O, var/def_zone=null, var/datum/wound/supplied_wound)
-	O.loc = src
+	O.forceMove(src)
 	src.embedded += O
 	src.verbs += /mob/proc/yank_out_object
 

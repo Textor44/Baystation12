@@ -2,6 +2,14 @@
 	res_amount = 4
 	max_res_amount = 20
 	time = 5
+	difficulty = 1
+
+/datum/stack_recipe/tile/spawn_result(user, location, amount)
+	var/obj/item/stack/S = ..()
+	if(istype(S))
+		S.amount = amount
+		S.add_to_stacks(user, 1)
+	return S
 
 /datum/stack_recipe/tile/metal/floor
 	title = "regular floor tile"
@@ -53,7 +61,14 @@
 
 /datum/stack_recipe/rod
 	title = "rod"
-	result_type = /obj/item/stack/rods
+	result_type = /obj/item/stack/material/rods
 	res_amount = 2
 	max_res_amount = 60
+	send_material_data = 1
 	time = 5
+	difficulty = 1
+
+/datum/stack_recipe/rod/spawn_result(user, location, amount)
+	var/obj/item/stack/S = new result_type(location, amount, use_material)
+	S.add_to_stacks(user, 1)
+	return S

@@ -17,6 +17,7 @@
 	var/deform =       'icons/mob/human_races/species/human/deformed_body.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/species/human/preview.dmi'
 	var/husk_icon =    'icons/mob/human_races/species/default_husk.dmi'
+	var/bandages_icon
 
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/species/human/damage_overlay.dmi'
@@ -162,6 +163,7 @@
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
@@ -213,7 +215,7 @@
 	// The basic skin colours this species uses
 	var/list/base_skin_colours
 
-	var/list/genders = list(MALE, FEMALE)
+	var/list/genders = list(MALE, FEMALE, PLURAL)
 
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
@@ -241,8 +243,7 @@
 		TAG_CULTURE =   list(CULTURE_OTHER),
 		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
 		TAG_FACTION =   list(FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM),
-		TAG_EDUCATION = list(EDUCATION_NONE)
+		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM)
 	)
 	var/list/force_cultural_info =                list()
 	var/list/default_cultural_info =              list()
@@ -392,6 +393,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
 					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
+
+	if(H != target)
+		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
+		target.update_personal_goal(/datum/goal/achievement/gethug, TRUE)
 
 /datum/species/proc/add_base_auras(var/mob/living/carbon/human/H)
 	if(base_auras)
@@ -569,7 +574,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 // Impliments different trails for species depending on if they're wearing shoes.
 /datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
-	if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+	if(H.lying)
+		return /obj/effect/decal/cleanable/blood/tracks/body
+	if(H.shoes || (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)))
 		var/obj/item/clothing/shoes = (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)) ? H.wear_suit : H.shoes // suits take priority over shoes
 		return shoes.move_trail
 	else
@@ -585,21 +592,17 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		target.w_uniform.add_fingerprint(attacker)
 	var/obj/item/organ/external/affecting = target.get_organ(ran_zone(attacker.zone_sel.selecting))
 
-	var/list/holding = list(target.get_active_hand() = 40, target.get_inactive_hand() = 20)
-
-	//See if they have any guns that might go off
-	for(var/obj/item/weapon/gun/W in holding)
-		if(W && prob(holding[W]))
-			var/list/turfs = list()
-			for(var/turf/T in view())
-				turfs += T
-			if(turfs.len)
-				var/turf/shoot_to = pick(turfs)
-				target.visible_message("<span class='danger'>[target]'s [W] goes off during the struggle!</span>")
-				return W.afterattack(shoot_to,target)
+	var/list/holding = list(target.get_active_hand() = 60, target.get_inactive_hand() = 30)
 
 	var/skill_mod = 10 * attacker.get_skill_difference(SKILL_COMBAT, target)
 	var/state_mod = attacker.melee_accuracy_mods() - target.melee_accuracy_mods()
+	if(target.a_intent == I_HELP)
+		state_mod -= 30
+	//Handle unintended consequences
+	for(var/obj/item/I in holding)
+		var/hurt_prob = max(holding[I] - 2*skill_mod + state_mod, 0)
+		if(prob(hurt_prob) && I.on_disarm_attempt(target, attacker))
+			return
 
 	var/randn = rand(1, 100) - skill_mod + state_mod
 	if(!(species_flags & SPECIES_FLAG_NO_SLIP) && randn <= 25)

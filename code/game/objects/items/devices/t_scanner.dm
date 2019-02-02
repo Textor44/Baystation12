@@ -7,7 +7,7 @@
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
 	item_state = "electronic"
-	matter = list(MATERIAL_STEEL = 150)
+	matter = list(MATERIAL_ALUMINIUM = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	action_button_name = "Toggle T-Ray scanner"
 
@@ -24,7 +24,7 @@
 	if(on)
 		set_active(FALSE)
 
-/obj/item/device/t_scanner/update_icon()
+/obj/item/device/t_scanner/on_update_icon()
 	icon_state = "t-ray[on]"
 
 /obj/item/device/t_scanner/emp_act()

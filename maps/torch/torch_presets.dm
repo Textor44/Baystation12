@@ -11,6 +11,7 @@ var/const/NETWORK_HANGAR      = "Hangar"
 var/const/NETWORK_EXPLO       = "Exploration"
 var/const/NETWORK_THIRD_DECK  = "Third Deck"
 var/const/NETWORK_FIFTH_DECK  = "Fifth Deck"
+var/const/NETWORK_NANOTRASEN  = "Petrov"
 
 /datum/map/torch/get_network_access(var/network)
 	switch(network)
@@ -55,6 +56,7 @@ var/const/NETWORK_FIFTH_DECK  = "Fifth Deck"
 		NETWORK_AQUILA,
 		NETWORK_CALYPSO,
 		NETWORK_POD,
+		NETWORK_NANOTRASEN,
 		NETWORK_ALARM_ATMOS,
 		NETWORK_ALARM_CAMERA,
 		NETWORK_ALARM_FIRE,
@@ -119,6 +121,9 @@ var/const/NETWORK_FIFTH_DECK  = "Fifth Deck"
 /obj/machinery/camera/network/engineering_outpost
 	network = list(NETWORK_ENGINEERING_OUTPOST)
 
+/obj/machinery/camera/network/nanotrasen
+	network = list(NETWORK_NANOTRASEN)
+
 // Motion
 /obj/machinery/camera/motion/engineering_outpost
 	network = list(NETWORK_ENGINEERING_OUTPOST)
@@ -182,6 +187,7 @@ var/const/NETWORK_FIFTH_DECK  = "Fifth Deck"
 // Shuttle SMES
 /obj/machinery/power/smes/buildable/preset/torch/shuttle/configure_and_install_coils()
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE
@@ -221,8 +227,8 @@ var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
 		num2text(MED_I_FREQ) = list(access_medical_equip),
 		num2text(SEC_FREQ)   = list(access_security),
 		num2text(SEC_I_FREQ) = list(access_security),
-		num2text(SCI_FREQ)   = list(access_tox,access_robotics,access_xenobiology),
+		num2text(SCI_FREQ)   = list(access_tox, access_robotics, access_xenobiology, access_pathfinder),
 		num2text(SUP_FREQ)   = list(access_cargo),
 		num2text(SRV_FREQ)   = list(access_janitor, access_hydroponics),
-		num2text(EXP_FREQ)   = list(access_explorer)
+		num2text(EXP_FREQ)   = list(access_explorer, access_rd)
 	)

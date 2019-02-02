@@ -5,7 +5,7 @@
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
 
-	matter = list(MATERIAL_STEEL = 60,MATERIAL_GLASS = 30)
+	matter = list(MATERIAL_ALUMINIUM = 60,MATERIAL_GLASS = 30)
 
 	var/emagged = 0.0
 	var/recording = 0.0
@@ -364,7 +364,7 @@
 		record()
 
 
-/obj/item/device/taperecorder/update_icon()
+/obj/item/device/taperecorder/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 
 	if(!mytape)
@@ -382,7 +382,7 @@
 	icon_state = "tape_white"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_TINY
-	matter = list(MATERIAL_STEEL=20, MATERIAL_GLASS=5)
+	matter = list(MATERIAL_PLASTIC=20, MATERIAL_STEEL=5, MATERIAL_GLASS=5)
 	force = 1
 	throwforce = 0
 	var/max_capacity = 600
@@ -393,7 +393,7 @@
 	var/doctored = 0
 
 
-/obj/item/device/tape/update_icon()
+/obj/item/device/tape/on_update_icon()
 	overlays.Cut()
 	if(ruined && max_capacity)
 		overlays += "ribbonoverlay"
@@ -528,7 +528,7 @@
 /obj/item/device/tape/loose/fix()
 	return
 
-/obj/item/device/tape/loose/update_icon()
+/obj/item/device/tape/loose/on_update_icon()
 	return
 
 /obj/item/device/tape/loose/get_loose_tape()

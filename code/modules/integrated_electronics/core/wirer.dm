@@ -14,8 +14,9 @@
 	w_class = ITEM_SIZE_SMALL
 	var/datum/integrated_io/selected_io = null
 	var/mode = WIRE
+	matter = list(MATERIAL_ALUMINIUM = 1500, MATERIAL_STEEL = 1000, MATERIAL_GLASS = 500, MATERIAL_PLASTIC = 500)
 
-/obj/item/device/integrated_electronics/wirer/update_icon()
+/obj/item/device/integrated_electronics/wirer/on_update_icon()
 	icon_state = "wirer-[mode]"
 
 /obj/item/device/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)
@@ -29,6 +30,9 @@
 			mode = WIRING
 			update_icon()
 		if(WIRING)
+			if(!selected_io)
+				mode = WIRE
+				.()
 			if(io == selected_io)
 				to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
 				return
@@ -59,6 +63,9 @@
 			return
 
 		if(UNWIRING)
+			if(!selected_io)
+				mode = UNWIRE
+				.()
 			if(io == selected_io)
 				to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring \the [selected_io.holder] from \
 				the same pin is rather moot.</span>")

@@ -8,7 +8,7 @@
 	icon_state = "0"
 	var/state = 0
 	var/obj/item/weapon/circuitboard/circuit = null
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 //	weight = 1.0E8
 
 /obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
@@ -59,7 +59,7 @@
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				src.state = 1
 				src.icon_state = "0"
-				circuit.loc = src.loc
+				circuit.dropInto(loc)
 				src.circuit = null
 		if(2)
 			if(isScrewdriver(P) && circuit)

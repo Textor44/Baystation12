@@ -146,16 +146,15 @@
 		return wrapped.attack_self(user)
 	return ..()
 
-/obj/item/weapon/gripper/verb/drop_item()
+/obj/item/weapon/gripper/verb/drop_gripped_item()
 
-	set name = "Drop Item"
+	set name = "Drop Gripped Item"
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Silicon Commands"
-
 	if(!wrapped)
 		//There's some weirdness with items being lost inside the arm. Trying to fix all cases. ~Z
 		for(var/obj/item/thing in src.contents)
-			thing.loc = get_turf(src)
+			thing.dropInto(loc)
 		return
 
 	if(wrapped.loc != src)
@@ -163,9 +162,9 @@
 		return
 
 	to_chat(src.loc, "<span class='warning'>You drop \the [wrapped].</span>")
-	wrapped.loc = get_turf(src)
+	wrapped.dropInto(loc)
 	wrapped = null
-	//update_icon()
+	//on_update_icon()
 
 /obj/item/weapon/gripper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	// Don't fall through and smack people with gripper, instead just no-op
@@ -229,7 +228,7 @@
 
 				A.cell.add_fingerprint(user)
 				A.cell.update_icon()
-				A.cell.loc = src
+				A.cell.forceMove(src)
 				A.cell = null
 
 				A.charging = 0
@@ -241,21 +240,19 @@
 		var/mob/living/silicon/robot/A = target
 		if(A.opened)
 			if(A.cell)
-
 				wrapped = A.cell
-
 				A.cell.add_fingerprint(user)
 				A.cell.update_icon()
 				A.update_icon()
-				A.cell.loc = src
+				A.cell.forceMove(src)
 				A.cell = null
-
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
+				A.power_down()
 
 /obj/item/weapon/gripper/proc/finish_using(var/atom/target, var/mob/living/user, params, force_holder, resolved)
 
 	if(QDELETED(wrapped))
-		wrapped.loc = null
+		wrapped.forceMove(null)
 		wrapped = null
 		return
 

@@ -15,7 +15,6 @@
 	var/accept_drinking = 0
 	var/amount = 30
 
-	use_power = 1
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -81,7 +80,7 @@
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
 		if(C)
 			to_chat(user, "<span class='notice'>You remove \the [C] from \the [src].</span>")
-			C.loc = loc
+			C.dropInto(loc)
 
 	else if(istype(W, /obj/item/weapon/reagent_containers/glass) || istype(W, /obj/item/weapon/reagent_containers/food))
 		if(container)
@@ -97,10 +96,9 @@
 		if(!RC.is_open_container())
 			to_chat(user, "<span class='warning'>You don't see how \the [src] could dispense reagents into \the [RC].</span>")
 			return
-
+		if(!user.unEquip(RC, src))
+			return
 		container =  RC
-		user.drop_from_inventory(RC)
-		RC.loc = src
 		update_icon()
 		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
 		SSnano.update_uis(src) // update all UIs attached to src
@@ -181,7 +179,7 @@
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/chemical_dispenser/update_icon()
+/obj/machinery/chemical_dispenser/on_update_icon()
 	overlays.Cut()
 	if(container)
 		var/mutable_appearance/beaker_overlay

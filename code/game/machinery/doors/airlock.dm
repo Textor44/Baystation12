@@ -202,7 +202,7 @@ var/list/airlock_overlays = list()
 
 /obj/machinery/door/airlock/glass/research
 	door_color = COLOR_WHITE
-	stripe_color = COLOR_BOTTLE_GREEN
+	stripe_color = COLOR_RESEARCH
 
 /obj/machinery/door/airlock/glass/science
 	door_color = COLOR_WHITE
@@ -272,6 +272,11 @@ var/list/airlock_overlays = list()
 	name = "Gold Airlock"
 	door_color = COLOR_SUN
 	mineral = MATERIAL_GOLD
+
+/obj/machinery/door/airlock/crystal
+	name = "Crystal Airlock"
+	door_color = COLOR_CRYSTAL
+	mineral = MATERIAL_CRYSTAL
 
 /obj/machinery/door/airlock/silver
 	name = "Silver Airlock"
@@ -581,7 +586,7 @@ About the new airlock wires panel:
 		return 0
 
 
-/obj/machinery/door/airlock/update_icon(state=0, override=0)
+/obj/machinery/door/airlock/on_update_icon(state=0, override=0)
 	if(connections in list(NORTH, SOUTH, NORTH|SOUTH))
 		if(connections in list(WEST, EAST, EAST|WEST))
 			set_dir(SOUTH)
@@ -1104,8 +1109,8 @@ About the new airlock wires panel:
 		if (F.wielded)
 			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
 			user.visible_message("<span class='danger'>[user] smashes \the [C] into the airlock's control panel! It explodes in a shower of sparks!</span>", "<span class='danger'>You smash \the [C] into the airlock's control panel! It explodes in a shower of sparks!</span>")
-			src.health = 0
-			src.set_broken()
+			health = 0
+			set_broken(TRUE)
 		else
 			..()
 			return
@@ -1171,26 +1176,21 @@ About the new airlock wires panel:
 		ignite(is_hot(C))
 	..()
 
-/obj/machinery/door/airlock/set_broken()
-	src.p_open = 1
-	stat |= BROKEN
-	if (secured_wires)
-		lock()
-	for (var/mob/O in viewers(src, null))
-		if ((O.client && !( O.blinded )))
-			O.show_message("[src.name]'s control panel bursts open, sparks spewing out!")
-
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
-
-	update_icon()
-	return
+/obj/machinery/door/airlock/set_broken(new_state)
+	. = ..()
+	if(. && new_state)
+		p_open = 1
+		if (secured_wires)
+			lock()
+		visible_message("\The [src]'s control panel bursts open, sparks spewing out!")
+		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		s.set_up(5, 1, src)
+		s.start()
 
 /obj/machinery/door/airlock/open(var/forced=0)
 	if(!can_open(forced))
 		return 0
-	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
+	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(arePowerSystemsOn())
@@ -1243,9 +1243,9 @@ About the new airlock wires panel:
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(door_crush_damage))
 				take_damage(door_crush_damage)
-				use_power(door_crush_damage * 100)		// Uses bunch extra power for crushing the target.
+				use_power_oneoff(door_crush_damage * 100)		// Uses bunch extra power for crushing the target.
 
-	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
+	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
 		playsound(src.loc, close_sound_powered, 100, 1)
 	else

@@ -186,7 +186,7 @@
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(getFireLoss())
-		if((COLD_RESISTANCE in mutations) || (prob(1)))
+		if((MUTATION_COLD_RESISTANCE in mutations) || (prob(1)))
 			heal_organ_damage(0,1)
 
 	// DNA2 - Gene processing.
@@ -317,7 +317,7 @@
 	return !failed_last_breath
 
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
-	if(!environment || (SPACERES in mutations))
+	if(!environment || (MUTATION_SPACERES in mutations))
 		return
 
 	//Stuff like the xenomorph's plasma regen happens here.
@@ -478,7 +478,7 @@
 	return get_thermal_protection(thermal_protection_flags)
 
 /mob/living/carbon/human/get_cold_protection(temperature)
-	if(COLD_RESISTANCE in mutations)
+	if(MUTATION_COLD_RESISTANCE in mutations)
 		return 1 //Fully protected from the cold.
 
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
@@ -524,10 +524,10 @@
 
 	if(reagents)
 		if(touching) touching.metabolize()
-		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
 
 	// Trace chemicals
+	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
 	for(var/T in chem_doses)
 		if(bloodstr.has_reagent(T) || ingested.has_reagent(T) || touching.has_reagent(T))
 			continue
@@ -537,8 +537,6 @@
 			chem_doses -= T
 
 	updatehealth()
-
-	return //TODO: DEFERRED
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
@@ -556,7 +554,7 @@
 	if(status_flags & GODMODE)	return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
-	if(ssd_check() && species.get_ssd(src))
+	if(ssd_check() && species.get_ssd(src) || player_triggered_sleeping)
 		Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
@@ -709,13 +707,12 @@
 			clear_fullscreen("brute")
 
 		if(healths)
+			healths.overlays.Cut()
 			if (chem_effects[CE_PAINKILLER] > 100)
-				healths.overlays.Cut()
 				healths.icon_state = "health_numb"
 			else
 				// Generate a by-limb health display.
 				healths.icon_state = "blank"
-				healths.overlays = null
 
 				var/no_damage = 1
 				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
@@ -1004,7 +1001,7 @@
 		if(wear_id)
 			var/obj/item/weapon/card/id/I = wear_id.GetIdCard()
 			if(I)
-				var/datum/job/J = job_master.GetJob(I.GetJobName())
+				var/datum/job/J = SSjobs.get_by_title(I.GetJobName())
 				if(J)
 					holder.icon_state = J.hud_icon
 
@@ -1144,5 +1141,5 @@
 
 /mob/living/carbon/human/update_living_sight()
 	..()
-	if(XRAY in mutations)
+	if(MUTATION_XRAY in mutations)
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)

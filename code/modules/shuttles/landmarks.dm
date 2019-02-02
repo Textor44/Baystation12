@@ -19,16 +19,16 @@
 	var/area/base_area
 	//Will also leave this type of turf behind if set.
 	var/turf/base_turf
-	//If set, will set base area and turf type to same as where it was spawned at
-	var/autoset
-	//Will be moved by the shuttle when it moves
-	var/mobile
 	//Name of the shuttle, null for generic waypoint
 	var/shuttle_restricted 
+	var/flags = 0
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
-	if(autoset)
+	if(docking_controller)
+		. = INITIALIZE_HINT_LATELOAD
+
+	if(flags & SLANDMARK_FLAG_AUTOSET)
 		base_area = get_area(src)
 		var/turf/T = get_turf(src)
 		if(T)
@@ -37,18 +37,19 @@
 		base_area = locate(base_area || world.area)
 
 	SetName(name + " ([x],[y])")
-
-	if(docking_controller)
-		var/docking_tag = docking_controller
-		docking_controller = locate(docking_tag)
-		if(!istype(docking_controller))
-			log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
-		if(GLOB.using_map.use_overmap)
-			var/obj/effect/overmap/location = map_sectors["[z]"]
-			if(location && location.docking_codes)
-				docking_controller.docking_codes = location.docking_codes
-
 	SSshuttle.register_landmark(landmark_tag, src)
+
+/obj/effect/shuttle_landmark/LateInitialize()
+	if(!docking_controller)
+		return
+	var/docking_tag = docking_controller
+	docking_controller = locate(docking_tag)
+	if(!istype(docking_controller))
+		log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+	if(GLOB.using_map.use_overmap)
+		var/obj/effect/overmap/location = map_sectors["[z]"]
+		if(location && location.docking_codes)
+			docking_controller.docking_codes = location.docking_codes
 
 /obj/effect/shuttle_landmark/forceMove()
 	var/obj/effect/overmap/map_origin = map_sectors["[z]"]
@@ -87,7 +88,7 @@
 /obj/effect/shuttle_landmark/automatic
 	name = "Navpoint"
 	landmark_tag = "navpoint"
-	autoset = 1
+	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	landmark_tag += "-[x]-[y]-[z]-[random_id("landmarks",1,9999)]"
@@ -106,6 +107,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
+	..()
 	for(var/turf/T in range(radius, src))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
@@ -138,7 +140,7 @@
 	T.hotspot_expose(1500, 5)
 	update_icon()
 
-/obj/item/device/spaceflare/update_icon()
+/obj/item/device/spaceflare/on_update_icon()
 	if(active)
 		icon_state = "bluflare_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
