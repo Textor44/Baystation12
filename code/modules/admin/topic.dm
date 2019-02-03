@@ -1507,7 +1507,6 @@
 		var/obj/machinery/photocopier/faxmachine/fax = adminfax["origin"]
 		var/replyorigin = adminfax["destination"]
 
-
 		var/obj/item/weapon/paper/admin/P = new /obj/item/weapon/paper/admin( null ) //hopefully the null loc won't cause trouble for us
 		faxreply = P
 
@@ -1517,6 +1516,11 @@
 		P.sender = sender
 
 		P.adminbrowse()
+
+	else if(href_list["faxtake"])
+		var/list/adminfax =list(href_list["faxtake"])
+		adminfax["taken"] = usr.client
+		href_list["faxtake"] = adminfax
 
 	else if(href_list["jumpto"])
 		if(!check_rights(R_ADMIN))	return

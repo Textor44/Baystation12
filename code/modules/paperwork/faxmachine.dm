@@ -228,7 +228,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/list/fax, var/mob/sender, var/idname, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
 	var/msg = "<span class='notice'><b><font color='[font_colour]'>[faxname]: </font>[get_options_bar(sender, 2,1,1)](ID: [idname])"
-	msg += "(<A HREF='?_src_=holder;take_ic=\ref[sender]'>TAKE</a>) (<a href='?_src_=holder;FaxReply=[fax]'>REPLY</a>)</b>: "
+	msg += "(<A HREF='?_src_=holder;faxtake=\ref[sent]'>TAKE</a>) (<a href='?_src_=holder;FaxReply=[fax]'>REPLY</a>)</b>: "
 	msg += "Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
 
 	for(var/client/C in GLOB.admins)
@@ -245,7 +245,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 	adminfax["origin"] = origin
 	adminfax["destination"] = destination
 	adminfax["intercepted"] = intercepted
-	adminfax["taken"] = "No"
+	adminfax["taken"] = ""
 
 	GLOB.adminfaxes += list(adminfax)
 

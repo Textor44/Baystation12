@@ -1502,9 +1502,8 @@ var/global/floorIsLava = 0
 		
 	var/obj/item/rcvdcopy
 
-	if(P)
-		rcvdcopy = destination.copy(P)
-		rcvdcopy.loc = null //hopefully this shouldn't cause trouble
+	rcvdcopy = destination.copy(P)
+	rcvdcopy.forceMove(null) //hopefully this shouldn't cause trouble
 
 	add_admin_fax_to_list(rcvdcopy, key_name_admin(src.owner), key_name_admin(src.owner), destination, null)//is never intercepted, so the last argument is always null.
 
@@ -1543,7 +1542,7 @@ var/global/floorIsLava = 0
 	var/datum/browser/popup = new(usr, "admin_faxes", "Administrator Fax Mangement", 800, 600)
 	var/list/dat = list()
 	dat += "<table width='100%' border = '1px'>"
-	dat += "<tr><th>Sender</th><th>Sender ID</th><th>Fax Name</th><th>Destination</th><th>Intercepted</th><th>Taken</th><th>Actions</th></tr>"
+	dat += "<tr><th>Sender</th><th>Sender ID</th><th>Fax Name</th><th>Destination</th><th>Intercepted</th><th>Taken By</th><th>Actions</th></tr>"
 	for(var/list/fax in GLOB.adminfaxes)
 		dat += "<tr class='candystripe'><td>[fax["sender"]]</td>"
 		dat += "<td>[fax["sender_id"]]</td>"
