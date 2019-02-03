@@ -22,7 +22,7 @@
 	company_name  = "Sol Central Government"
 	company_short = "SolGov"
 
-	map_admin_faxes = list("Corporate Central Office")
+	map_admin_faxes = list("Sol Central Government", "Fleet Command", "Office of Civil Investigation and Enforcement", "Expeditionary Corps Organization HQ", "NanoTrasen Corporate Headquarters", "DAIS Corporate Headquarters", "Xynergy Corporate Headquarters", "Hephaestus Industries HQ", "Zeng-Hu Pharmaceuticals HQ", "Ward-Takahashi GMB HQ")
 
 	//These should probably be moved into the evac controller...
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."

@@ -1,4 +1,3 @@
-
 var/global/BSACooldown = 0
 var/global/floorIsLava = 0
 
@@ -1465,7 +1464,7 @@ var/global/floorIsLava = 0
 			P.adminbrowse()
 
 
-datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies in
+/datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies in
 
 /datum/admins/proc/faxCallback(var/obj/item/weapon/paper/admin/P, var/obj/machinery/photocopier/faxmachine/destination)
 	var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
@@ -1500,12 +1499,14 @@ datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies
 			P.stamped = new
 		P.stamped += /obj/item/weapon/stamp/centcomm
 		P.overlays += stampoverlay
-
+		
 	var/obj/item/rcvdcopy
-	rcvdcopy = destination.copy(P)
-	rcvdcopy.loc = null //hopefully this shouldn't cause trouble
-	//GLOB.adminfaxes += rcvdcopy
-	add_admin_fax_to_list(rcvdcopy, key_name_admin(src.owner), destination, null)//is never intercepted, so the last argument is always null.
+
+	if(P)
+		rcvdcopy = destination.copy(P)
+		rcvdcopy.loc = null //hopefully this shouldn't cause trouble
+
+	add_admin_fax_to_list(rcvdcopy, key_name_admin(src.owner), key_name_admin(src.owner), destination, null)//is never intercepted, so the last argument is always null.
 
 	if(destination.recievefax(P))
 		to_chat(src.owner, "<span class='notice'>Message reply to transmitted successfully.</span>")
@@ -1541,10 +1542,11 @@ datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies
 /datum/admins/proc/admin_fax_panel()
 	var/datum/browser/popup = new(usr, "admin_faxes", "Administrator Fax Mangement", 800, 600)
 	var/list/dat = list()
-	dat += "<table>"
-	dat += "<tr><th>Sender</th><th>Fax Name</th><th>Destination</th><th>Intercepted</th><th>Taken</th><th>Actions</th></tr>"
+	dat += "<table width='100%' border = '1px'>"
+	dat += "<tr><th>Sender</th><th>Sender ID</th><th>Fax Name</th><th>Destination</th><th>Intercepted</th><th>Taken</th><th>Actions</th></tr>"
 	for(var/list/fax in GLOB.adminfaxes)
-		dat += "<tr><td>[fax["sender"]]</td>"
+		dat += "<tr class='candystripe'><td>[fax["sender"]]</td>"
+		dat += "<td>[fax["sender_id"]]</td>"
 		dat += "<td>Fax to [fax["destination"]] from [fax["sender"]]</td>"
 		dat += "<td>[fax["destination"]]</td>"
 		dat += "<td>No</td>"
@@ -1553,5 +1555,6 @@ datum/admins/var/obj/item/weapon/paper/admin/faxreply // var to hold fax replies
 		dat += "<a href='?src=\ref[src];FaxReply=\ref[fax]'>Reply</a>"
 		dat += "<a href='?src=\ref[src];faxtake=[fax]'>Take</a></td></tr>"
 	dat += "</table>"
-	popup.set_content(jointext(dat, null))
+	
+	popup.set_content(JOINTEXT(dat))
 	popup.open()
