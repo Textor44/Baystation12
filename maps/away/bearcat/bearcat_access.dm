@@ -11,10 +11,10 @@
 	region = ACCESS_REGION_NONE
 
 /obj/item/weapon/card/id/bearcat
-	access = list(access_bearcat)
+	access = list(access_bearcat, access_research)
 
 /obj/item/weapon/card/id/bearcat_captain
-	access = list(access_bearcat, access_bearcat_captain)
+	access = list(access_bearcat, access_bearcat_captain, access_research)
 
 /obj/machinery/door/airlock/autoname/bearcat
 

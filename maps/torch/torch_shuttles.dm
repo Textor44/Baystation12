@@ -221,6 +221,7 @@
 		"nav_smugglers_antag",
 		"nav_magshield_antag",
 		"nav_casino_antag",
+		"nav_bearcat_antag",
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
@@ -344,6 +345,7 @@
 		"nav_smugglers_antag",
 		"nav_magshield_antag",
 		"nav_casino_antag",
+		"nav_bearcat_antag",
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
@@ -411,6 +413,7 @@
 		"nav_smugglers_antag",
 		"nav_magshield_antag",
 		"nav_casino_antag",
+		"nav_bearcat_antag",
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
@@ -478,6 +481,7 @@
 		"nav_smugglers_antag",
 		"nav_magshield_antag",
 		"nav_casino_antag",
+		"nav_bearcat_antag",
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
