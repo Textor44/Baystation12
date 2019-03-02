@@ -1,0 +1,410 @@
+"aa" = (/turf/space,/area/space)
+"ab" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_bridge"},/obj/machinery/door/blast/regular/open/sfv_armstrong/bridge{icon_state = "pdoor0"; dir = 4},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/bridge)
+"ac" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/bridge)
+"ad" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/captain_office)
+"ae" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_bridge"},/obj/machinery/door/blast/regular/open/sfv_armstrong/bridge,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/bridge)
+"af" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/cii_office)
+"ag" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/armory)
+"ah" = (/obj/machinery/computer/station_alert/all{icon_state = "computer"; dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; layer = 2.4; level = 2},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"ai" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aj" = (/obj/item/modular_computer/console/preset/sysadmin{icon_state = "console"; dir = 8},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"ak" = (/turf/simulated/wall,/area/sfv_armstrong/command/bridge)
+"al" = (/turf/simulated/floor/reinforced/airless,/area/space)
+"am" = (/obj/item/weapon/paper_bin,/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"an" = (/obj/item/modular_computer/console/preset/command,/obj/structure/sign/solgov{pixel_y = 28},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"ao" = (/turf/simulated/wall,/area/sfv_armstrong/command/captain_office)
+"ap" = (/turf/simulated/wall/r_wall/hull,/area/space)
+"aq" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/airless,/area/sfv_armstrong/command/captain_office)
+"ar" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/ce_office)
+"as" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"at" = (/obj/structure/bed/chair/comfy/blue{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"au" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/structure/table/woodentable/ebony,/obj/item/weapon/paper_bin,/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"av" = (/turf/simulated/wall/r_wall,/area/sfv_armstrong/armory)
+"aw" = (/obj/machinery/computer/atmoscontrol{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"ax" = (/obj/structure/bed/chair/office/comfy/yellow{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"ay" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 8},/obj/machinery/light/spot{icon_state = "tube_map"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"az" = (/obj/structure/bed/chair/comfy/blue{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"aA" = (/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"aB" = (/obj/item/modular_computer/console/preset/engineering,/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"aC" = (/turf/simulated/wall/r_wall,/area/sfv_armstrong/command/ce_office)
+"aD" = (/obj/structure/bed/chair/comfy/black{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"aE" = (/obj/item/weapon/paper_bin,/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"aF" = (/obj/item/modular_computer/console/preset/command,/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"aG" = (/turf/simulated/wall/r_wall,/area/sfv_armstrong/command/cii_office)
+"aH" = (/obj/structure/table/rack,/obj/machinery/door/window/brigdoor,/obj/item/weapon/gun/energy/laser/secure,/obj/item/weapon/gun/energy/laser/secure,/obj/item/weapon/gun/energy/laser/secure,/obj/item/weapon/gun/energy/laser/secure,/obj/item/weapon/gun/energy/laser/secure,/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aI" = (/obj/machinery/computer/rcon{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aK" = (/obj/item/modular_computer/console/preset/engineering{icon_state = "console"; dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aL" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"aM" = (/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"aN" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/table/rack,/obj/machinery/door/window/brigdoor,/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aO" = (/obj/structure/bed/chair/office/comfy/blue{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{id = "sfva_ec_captain"; pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/captain_office)
+"aP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aQ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"aR" = (/obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG{pixel_x = 8; pixel_y = -4},/obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG{pixel_x = -4; pixel_y = -4},/obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG{pixel_x = -4; pixel_y = 8},/obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG{pixel_x = 8; pixel_y = 8},/obj/structure/table/steel,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aS" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/structure/table/woodentable/ebony,/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"aT" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aV" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"aW" = (/obj/structure/table/steel,/obj/item/weapon/reagent_containers/food/drinks/pitcher,/obj/item/weapon/reagent_containers/food/drinks/pitcher{pixel_y = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aX" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aY" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"aZ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"ba" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bb" = (/obj/structure/bed/chair/office/comfy/yellow{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{id = "sfva_office_ce"; pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"bc" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bd" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"be" = (/obj/structure/bed/chair/comfy/black{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"bf" = (/obj/machinery/computer/ship/sensors{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bg" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bh" = (/obj/structure/table/steel,/obj/machinery/button/remote/blast_door{id = "sfva_bridge_blast"; name = "Bridge blast door control"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bi" = (/obj/machinery/computer/ship/navigation,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bj" = (/turf/simulated/wall,/area/sfv_armstrong/command/hallway)
+"bk" = (/obj/machinery/computer/ship/helm{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bl" = (/obj/structure/bed/chair/office/comfy/blue{icon_state = "comfyofficechair_preview"; dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bm" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/table/rack,/obj/machinery/door/window/brigdoor{icon_state = "leftsecure"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"bn" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/airless,/area/sfv_armstrong/command/ce_office)
+"bo" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bp" = (/obj/machinery/computer/ship/engines{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bq" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"br" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"bs" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bt" = (/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"bu" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_captain"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/hallway)
+"bv" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bw" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bx" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/table/rack,/obj/machinery/door/window/brigdoor{icon_state = "leftsecure"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"by" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/ce_office)
+"bz" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bA" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bB" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bC" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"bE" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/engineering/deck1smes)
+"bF" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"bG" = (/obj/structure/table/steel,/obj/item/weapon/folder/blue,/obj/item/weapon/folder/blue{pixel_x = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bH" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bI" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"bJ" = (/obj/structure/bed/chair/comfy/captain{icon_state = "capchair_preview"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bK" = (/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bL" = (/turf/simulated/wall,/area/sfv_armstrong/command/xo_office)
+"bM" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_office_ce"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/ce_office)
+"bN" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 4},/obj/structure/cable/green,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bO" = (/turf/simulated/wall,/area/sfv_armstrong/command/cmo_office)
+"bP" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bQ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/meter,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"bR" = (/turf/simulated/wall,/area/sfv_armstrong/command/ert_office)
+"bS" = (/obj/machinery/computer/message_monitor{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bT" = (/obj/item/modular_computer/console/preset/ert{icon_state = "console"; dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"bU" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green,/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"bV" = (/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"bW" = (/turf/simulated/floor/carpet/orange,/area/sfv_armstrong/command/ce_office)
+"bX" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"bY" = (/turf/simulated/floor/carpet/purple,/area/sfv_armstrong/command/cii_office)
+"bZ" = (/obj/machinery/door/airlock/highsecurity,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/cii_office)
+"ca" = (/obj/machinery/computer/telecomms/monitor{icon_state = "computer"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cb" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cc" = (/obj/item/modular_computer/console/preset/security{icon_state = "console"; dir = 8},/obj/machinery/light/spot{icon_state = "tube_map"; dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cd" = (/obj/structure/bed/chair/comfy/blue{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"ce" = (/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"cf" = (/obj/machinery/door/airlock/highsecurity,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/armory)
+"cg" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"ch" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"ci" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{icon_state = "1-2"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"cj" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"ck" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{icon_state = "1-4"; dir = 8},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"cl" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"cm" = (/obj/machinery/computer/ship/navigation{icon_state = "computer"; dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; layer = 2.4; level = 2},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cn" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"co" = (/obj/item/modular_computer/console/preset/dock{icon_state = "console"; dir = 8},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cp" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"cq" = (/obj/item/weapon/paper_bin,/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"cr" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 1},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"cs" = (/obj/machinery/door/blast/regular/open/sfv_armstrong/sensors,/turf/simulated/floor/reinforced/airless,/area/space)
+"ct" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"cu" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"cv" = (/obj/structure/table/steel,/obj/item/weapon/folder/red,/obj/item/weapon/pen,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cw" = (/obj/machinery/shipsensors,/turf/simulated/floor/reinforced/airless,/area/space)
+"cx" = (/obj/machinery/atmospherics/pipe/simple/hidden/cyan{icon_state = "intact"; dir = 8},/obj/machinery/meter,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"cy" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/xo_office)
+"cz" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/airlock/autoname/command,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cA" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/cmo_office)
+"cB" = (/obj/machinery/door/airlock/glass/command,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"cC" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/ert_office)
+"cD" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/xo_office)
+"cE" = (/obj/structure/bed/chair/comfy/blue{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"cF" = (/turf/simulated/wall,/area/sfv_armstrong/command/conf_room)
+"cG" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green,/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"cH" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_xo"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/xo_office)
+"cI" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/cmo_office)
+"cJ" = (/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"cK" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green,/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"cL" = (/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"cM" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green,/obj/machinery/light{dir = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cN" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cO" = (/obj/structure/bed/chair/office/comfy/black,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cP" = (/obj/structure/bed/chair/office/comfy/black,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cQ" = (/obj/structure/bed/chair/office/comfy/black,/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cR" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"cS" = (/obj/machinery/light/spot{icon_state = "tube_map"; dir = 4},/obj/machinery/light_switch{pixel_x = 28},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cT" = (/obj/structure/bed/chair/comfy/teal{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"cU" = (/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"cV" = (/obj/effect/overmap/ship/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"cW" = (/obj/structure/bed/chair/comfy/red{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"cX" = (/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"cY" = (/obj/machinery/button/windowtint{pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"cZ" = (/obj/machinery/button/windowtint{pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"da" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"db" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/folder/blue,/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dc" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/pen,/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dd" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/paper_bin,/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"de" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/folder/red,/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"df" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dg" = (/obj/structure/bed/chair/comfy/teal{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"dh" = (/obj/item/weapon/paper_bin,/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"di" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 1},/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"dj" = (/obj/structure/bed/chair/comfy/red{icon_state = "comfychair_preview"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"dk" = (/obj/item/weapon/paper_bin,/obj/structure/table/woodentable/ebony,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"dl" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 1},/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"dm" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/light{dir = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dn" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"do" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dp" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 1},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dq" = (/obj/structure/bed/chair/office/comfy/black{icon_state = "comfyofficechair_preview"; dir = 1},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"dr" = (/obj/machinery/light{icon_state = "tube_map"; dir = 4},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"ds" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_doctor"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/cmo_office)
+"dt" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/command/conf_room)
+"du" = (/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dv" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dw" = (/obj/machinery/button/windowtint{pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"dx" = (/obj/machinery/alarm/sfv_armstrong,/obj/machinery/light/spot{icon_state = "tube_map"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"dy" = (/obj/machinery/light/spot{icon_state = "tube_map"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"dz" = (/obj/structure/cable/green{d2 = 4; icon_state = "0-4"},/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/obj/machinery/power/smes/buildable/preset/torch/substation,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dA" = (/turf/simulated/wall,/area/sfv_armstrong/crew/hallway)
+"dB" = (/obj/machinery/light/spot,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"dC" = (/turf/simulated/wall,/area/sfv_armstrong/engineering/deck1smes)
+"dD" = (/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dE" = (/turf/simulated/wall,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dF" = (/obj/machinery/power/breakerbox/activated,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dG" = (/obj/machinery/atmospherics/pipe/simple/hidden/red{icon_state = "intact"; dir = 4},/obj/machinery/meter,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dH" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal{dir = 4},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dI" = (/obj/machinery/atmospherics/valve/digital{dir = 4; frequency = 1447; id = "fuelmode"},/obj/machinery/light{dir = 1},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/cyan{icon_state = "intact"; dir = 8},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dK" = (/obj/machinery/atmospherics/pipe/simple/hidden/cyan{icon_state = "intact"; dir = 8},/obj/machinery/light{dir = 1},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dL" = (/obj/machinery/atmospherics/binary/pump{dir = 8},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dM" = (/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{dir = 1; icon_state = "map"},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dN" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"dO" = (/obj/machinery/atmospherics/pipe/tank/air{icon_state = "air_map"; dir = 8},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dP" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/light/small{dir = 8},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dQ" = (/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/power/terminal{icon_state = "term"; dir = 1},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dR" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{icon_state = "2-8"; dir = 8},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"dS" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dT" = (/obj/machinery/atmospherics/valve/digital{dir = 4; frequency = 1447; id = "fuelmode"},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dU" = (/obj/machinery/atmospherics/omni/filter{tag_east = 2; tag_south = 3; tag_west = 1},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dV" = (/obj/machinery/atmospherics/omni/filter{tag_east = 2; tag_south = 4; tag_west = 1},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dW" = (/obj/machinery/atmospherics/pipe/simple/hidden/red{icon_state = "intact"; dir = 10},/obj/machinery/meter,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dX" = (/obj/machinery/atmospherics/portables_connector{icon_state = "map_connector"; dir = 4},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dY" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,/obj/machinery/meter,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"dZ" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"ea" = (/obj/machinery/power/apc/sfv_armstrong,/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1smes)
+"eb" = (/obj/structure/cable{d1 = 32; d2 = 1; icon_state = "32-1"},/obj/structure/lattice,/obj/structure/inflatable/wall,/turf/simulated/open,/area/sfv_armstrong/engineering/deck1smes)
+"ec" = (/obj/machinery/button/windowtint{pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"ed" = (/obj/machinery/power/apc/sfv_armstrong,/obj/structure/cable/green{d2 = 8; icon_state = "0-8"},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"ee" = (/obj/machinery/light,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"ef" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/portable_atmospherics/canister/empty/oxygen,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"eg" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/portable_atmospherics/canister/empty/nitrogen,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"eh" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/portable_atmospherics/canister/empty,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"ei" = (/obj/machinery/atmospherics/portables_connector{icon_state = "map_connector"; dir = 4},/obj/machinery/light,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"ej" = (/obj/machinery/atmospherics/binary/pump{icon_state = "map_off"; dir = 4},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"ek" = (/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"el" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/ert_office)
+"em" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_ert"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/command/ert_office)
+"en" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"eo" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"ep" = (/obj/machinery/light/spot{dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"eq" = (/obj/machinery/door/airlock/autoname/command,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{icon_state = "1-2"; dir = 1},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/conf_room)
+"er" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"es" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"et" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"eu" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"ev" = (/obj/effect/wallframe_spawn/reinforced/polarized{id = "sfva_ec_conf"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/plating,/area/sfv_armstrong/command/conf_room)
+"ew" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"ex" = (/obj/machinery/light/spot,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"ey" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"ez" = (/obj/machinery/power/apc/sfv_armstrong,/obj/structure/cable/green,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"eA" = (/obj/machinery/door/airlock/civilian,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"eB" = (/obj/effect/wallframe_spawn/reinforced/polarized,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/captain_quarters)
+"eC" = (/turf/simulated/wall,/area/sfv_armstrong/crew/captain_quarters)
+"eD" = (/obj/machinery/door/airlock/civilian,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"eE" = (/obj/effect/wallframe_spawn/reinforced/polarized,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/xo_quarters)
+"eF" = (/turf/simulated/wall,/area/sfv_armstrong/crew/xo_quarters)
+"eG" = (/obj/machinery/door/airlock/civilian,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"eH" = (/obj/effect/wallframe_spawn/reinforced/polarized,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/ce_quarters)
+"eI" = (/turf/simulated/wall,/area/sfv_armstrong/crew/ce_quarters)
+"eJ" = (/obj/machinery/door/airlock/civilian,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"eK" = (/obj/effect/wallframe_spawn/reinforced/polarized,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/cii_quarters)
+"eL" = (/turf/simulated/wall,/area/sfv_armstrong/crew/cii_quarters)
+"eM" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/structure/cable/green,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"eN" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"eO" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"eP" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"eQ" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"eR" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"eS" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"eT" = (/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"eU" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"eV" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"eW" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"eX" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"eY" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"eZ" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"fa" = (/obj/machinery/alarm/sfv_armstrong{icon_state = "alarm0"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fb" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fc" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/light,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"fd" = (/obj/effect/submap_landmark/joinable_submap/sfv_armstrong,/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"fe" = (/obj/structure/bed,/obj/item/weapon/bedsheet/captain,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"ff" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/light,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"fg" = (/obj/structure/table/steel,/obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG{pixel_x = 8; pixel_y = 8},/obj/machinery/button/windowtint{id = "sfva_ec_bridge"; name = "Bridge Window Tint Control"; range = 8},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/bridge)
+"fh" = (/obj/structure/bed,/obj/item/weapon/bedsheet/hop,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"fi" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/light,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"fj" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/airless,/area/sfv_armstrong/command/xo_office)
+"fk" = (/obj/structure/bed,/obj/item/weapon/bedsheet/ce,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"fl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/light,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fm" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/airless,/area/sfv_armstrong/command/cmo_office)
+"fn" = (/obj/structure/bed,/obj/item/weapon/bedsheet/rd,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fo" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/crew/captain_quarters)
+"fp" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/airless,/area/sfv_armstrong/command/ert_office)
+"fq" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/crew/xo_quarters)
+"fr" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor/plating,/area/sfv_armstrong/command/conf_room)
+"fs" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/crew/ce_quarters)
+"ft" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/captain_quarters)
+"fu" = (/turf/simulated/wall/r_wall/hull,/area/sfv_armstrong/crew/cii_quarters)
+"fv" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/xo_quarters)
+"fw" = (/obj/structure/table/woodentable/mahogany,/obj/item/device/flashlight/lamp,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"fx" = (/obj/structure/table/woodentable/mahogany,/obj/item/device/flashlight/lamp,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"fy" = (/obj/structure/table/woodentable/mahogany,/obj/item/device/flashlight/lamp,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"fz" = (/obj/structure/table/woodentable/mahogany,/obj/item/device/flashlight/lamp,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fA" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/effect/submap_landmark/spawnpoint/sfv_armstrong/captain,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/captain_quarters)
+"fB" = (/obj/structure/bed/chair/office/comfy/blue{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{id = "sfva_ec_xo"; pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/wood/walnut,/area/sfv_armstrong/command/xo_office)
+"fC" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/effect/submap_landmark/spawnpoint/sfv_armstrong/xo,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/xo_quarters)
+"fD" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/effect/submap_landmark/spawnpoint/sfv_armstrong/ce,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/ce_quarters)
+"fE" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/effect/submap_landmark/spawnpoint/sfv_armstrong/int_officer,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/cii_quarters)
+"fF" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fG" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fH" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 1},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fI" = (/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fJ" = (/obj/structure/cable/green{icon_state = "1-2"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fK" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fL" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled,/area/sfv_armstrong/crew/hallway)
+"fM" = (/turf/simulated/wall,/area/space)
+"fN" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/green{icon_state = "1-4"; dir = 8},/obj/machinery/light_switch{pixel_x = -28},/turf/simulated/floor,/area/sfv_armstrong/engineering/deck1auxatmos)
+"fO" = (/obj/machinery/power/apc/sfv_armstrong{icon_state = "apc0"; dir = 1},/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"fP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable/green{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable/green{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled,/area/sfv_armstrong/command/hallway)
+"fQ" = (/obj/structure/bed/chair/office/comfy/teal{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{id = "sfva_ec_doctor"; pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/carpet/blue,/area/sfv_armstrong/command/cmo_office)
+"fR" = (/obj/structure/bed/chair/office/comfy/red{icon_state = "comfyofficechair_preview"; dir = 8},/obj/machinery/light{icon_state = "tube_map"; dir = 4},/obj/machinery/button/windowtint{id = "sfva_ec_ert"; pixel_x = 28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = 28; pixel_y = 8},/turf/simulated/floor/carpet/red,/area/sfv_armstrong/command/ert_office)
+"fS" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/button/windowtint{id = "sfva_ec_conf"; pixel_x = -28; pixel_y = -8},/obj/machinery/light_switch{pixel_x = -28; pixel_y = 8},/turf/simulated/floor/carpet/blue2,/area/sfv_armstrong/command/conf_room)
+"fT" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/ce_quarters)
+"fU" = (/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/door/firedoor/sfv_armstrong,/turf/simulated/floor,/area/sfv_armstrong/crew/cii_quarters)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaeaeaeacapalapapapalapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabahaiajakadaqadadarbnararafafafafagagagagagagagagbEbEbEbEdvdvdvdvdvdvdvdvdvdvdvdvaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabawaxayakatamanaoasauaBaCaDaEaFaGaHaNaNaNaNaNaNavdudzdFdCbQdHdIdJdJcxdJdKdLdMdOdEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaIaJaKakazaAaOaoaQaSbbaCbebtbraGaTaUaVbFbFbFbFavdPdQdRdCdSdHdGdTdUdVdWdXdLdYdOdEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaabaeaeabaRaJaWakaLaMaMaobIbWbWaCbXbYbYaGaPbmbxbmbmbxbmavdZeaebdCfNedeedDefegeheiejekdOdEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaabaXaYaZaZbacSakbobububjbybMbMaCbZaGaGaGcfavavavavavavavcgdCdCdCcpdEdEdEdEdEdEdEdEdEdEdEfMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacscsabbfbgaXbhbibzakbcchbddxbcbdbdfObcchbddycibdbdchbdbddydAendNdNdNeodNdNepdNdNdNdNdNdNdNepfMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacscwabbkblcVfdbJbKczbAcjbBbBbCbBbBfPbCcjbDbDckclclcjctctctcBereseseseteyeyeyfFeyeyfGfFfHfIeufMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacscsabbpbqaXfgbsbNakbccubddBbcbdbdbdbccubddBcibdbdcubdbddBdAendNdNeweodNdNexfJdNdNezfJfKfLexfMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaabaXbvbwbwbPcSakcDcHcHbLcIdsdsbOelemembReqevevevevevevcFeAeBeBeCeDeEeEeFeGeHeHeIeJeKeKeLfMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaabaeaeabbGbHcvakbUbVbVbLcGcJcJbOcKcLcLbRcMcNcOcPcQcQcRcFeMeNcYeCeOePcZeFeQeRdweIeSeTeceLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabbSbHbTakcdcefBbLcTcUfQbOcWcXfRbRfSdadbdcdddedfcFeUeVfweCeWeXfxeFeYeZfyeIfafbfzeFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabcacbccakcEcqcrbLdgdhdibOdjdkdlbRdmdndodpdqdqdrcFfcfAfeeCfffCfheFfifDfkeIflfEfneLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabcmcncoakcyfjcycycAfmcAcAcCfpcCcCfrfrfrfrfrfrfrdtfoftfofofqfvfqfqfsfTfsfsfufUfufuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaabaeaeaeacapalapapapalapapapalapapalalalalalalalapapalapapapalapapapalapapapalapapaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}
