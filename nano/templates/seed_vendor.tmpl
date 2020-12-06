@@ -1,0 +1,28 @@
+<table class='block' border='1' width='98%'>
+	<tr><th>Name</th><th>Variety</th><th>E</th><th>Y</th><th>M</th><th>Pr</th><th>Pt</th><th>Harvest</th>
+	<th>Temp</th><th>Light</th><th>Nutri</th><th>Water</th><th>Traits</th><th>Amount</th></tr>
+	{{if data.seed_count < 1 }}
+		<tr><th colspan='15' align='center'><font color='red'>MACHINE EMPTY</font></th></tr>
+	{{else}}
+		{{for data.seeds}}	
+			<tr class='candystripe'>
+				<td>{{:value.seed_name}}</td>
+				<td>#{{:value.uid}}</td>
+				<td>{{value.endurance}}</td>
+				<td>{{value.yield}}</td>
+				<td>{{value.maturation}}</td>
+				<td>{{value.production}}</td>
+				<td>{{value.potency}}</td>"				
+				<td>{{value.harvest}}</td>
+				<td>{{value.heat}}K</td>
+				<td>{{value.light}}L</td>					
+				<td>{{value.nutrient}}</td>
+				<td>{{value.water}}
+				<td>{{value.traits</td>
+				<td>{{value.quanity}}</td>
+				<td><div class='item'>{{:helper.link('Vend", 'circle-arrow-s',{"vend" : value.key > 0 ? null : 'disabled')}}</div>
+				<div class='item'>{{:helper.link('Vendx5", 'circle-arrow-s',{"vend5" : value.key > 4 ? null : 'disabled')}}</div></td>
+			</tr>
+		{{/for}}
+	{{/if}}
+</table>
